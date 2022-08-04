@@ -1,4 +1,6 @@
+import { GetStaticProps } from "next";
 import Head from "next/head";
+import { getAllPosts } from "src/utils/post";
 
 const Page = () => (
   <>
@@ -12,3 +14,8 @@ const Page = () => (
 );
 
 export default Page;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = await getAllPosts();
+  return { props: { posts } };
+};
