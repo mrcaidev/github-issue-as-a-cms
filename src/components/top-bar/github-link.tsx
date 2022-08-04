@@ -1,11 +1,12 @@
 import { FiGithub } from "react-icons/fi";
-import { IconLink } from "../common/icon-link";
+import { Link } from "../common/link";
 
 export const GithubLink = () => (
-  <IconLink
+  <Link
     href="https://github.com/mrcaidev/blog"
-    ariaLabel="View source code on GitHub"
+    aria-label="View source code on GitHub"
+    className="ghost"
   >
     <FiGithub size="24px" />
-  </IconLink>
+  </Link>
 );

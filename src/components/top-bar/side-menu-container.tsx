@@ -49,9 +49,9 @@ export const SideMenuContainer = ({ show, children }: IProps) => (
           aria-label="Sidebar menu"
           variants={slide}
           initial="hide"
-          whileInView="show"
+          animate="show"
           exit="exit"
-          className="flex flex-col justify-between items-center fixed top-0 right-0 h-screen px-8 py-4 rounded-l-2xl bg-slate-100 dark:bg-slate-900 shadow-2xl transition-bg z-30"
+          className="flex flex-col justify-between items-center fixed top-0 right-0 h-screen px-8 py-5 rounded-l-2xl bg-slate-100 dark:bg-slate-900 shadow-2xl transition-bg z-30"
         >
           {children}
         </m.div>
