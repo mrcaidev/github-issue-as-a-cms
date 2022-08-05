@@ -16,6 +16,9 @@
   body {
     @apply bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 transition-bg;
   }
+  strong {
+    @apply text-sky-800 dark:text-sky-200 transition-colors;
+  }
 }
 
 @layer components {

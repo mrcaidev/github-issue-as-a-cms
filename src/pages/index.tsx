@@ -1,5 +1,6 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
+import Cover from "src/components/cover";
 import { getAllPosts } from "src/utils/post";
 
 const Page = () => (
@@ -8,7 +9,7 @@ const Page = () => (
       <title>Blog - MrCai</title>
     </Head>
     <main>
-      <h1>Index</h1>
+      <Cover />
     </main>
   </>
 );
