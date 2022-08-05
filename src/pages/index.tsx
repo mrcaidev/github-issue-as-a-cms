@@ -22,7 +22,7 @@ const Page = ({ outlines }: IProps) => (
         <Title>Latest</Title>
         <div className="flex flex-col items-center divide-y divide-slate-300 dark:divide-slate-700">
           {outlines.map((outline) => (
-            <PostCard key={outline.path} {...outline} />
+            <PostCard key={outline.slug} {...outline} />
           ))}
         </div>
         <div className="py-8 text-center">

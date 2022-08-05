@@ -16,7 +16,7 @@ const slide: Variants = {
 };
 
 export const PostCard = ({
-  path,
+  slug: path,
   title,
   description,
   topic,

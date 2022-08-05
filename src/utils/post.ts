@@ -7,7 +7,7 @@ import { sortByLatest } from "./datetime";
 const postsDirectory = join(cwd(), "posts");
 
 export interface IPostOutline {
-  path: string;
+  slug: string;
   createdAt: string;
   title: string;
   description: string;
@@ -18,23 +18,28 @@ export interface IPost extends IPostOutline {
   content: string;
 }
 
-export async function getPostByFilename(filename: string) {
-  const path = filename.replace(/\.md$/, "");
-  const file = join(postsDirectory, filename);
-  const fileContent = await readFile(file, { encoding: "utf-8" });
-  const { data, content } = matter(fileContent);
-  return { ...data, path, content } as IPost;
-}
-
 export function getOutline(post: IPost) {
   const { content, ...outline } = post;
   return outline as IPostOutline;
 }
 
+export async function getAllSlugs() {
+  const fileNames = await readdir(postsDirectory);
+  const mdFileNames = fileNames.filter((filename) => filename.endsWith(".md"));
+  const slugs = mdFileNames.map((fileName) => fileName.replace(/\.md$/, ""));
+  return slugs;
+}
+
+export async function getPostBySlug(slug: string) {
+  const filePath = join(postsDirectory, slug + ".md");
+  const fileContent = await readFile(filePath, { encoding: "utf-8" });
+  const { data, content } = matter(fileContent);
+  return { ...data, slug, content } as IPost;
+}
+
 export async function getAllPosts() {
-  const filenames = await readdir(postsDirectory);
-  const mdFilenames = filenames.filter((filename) => filename.endsWith(".md"));
-  const posts = await Promise.all(mdFilenames.map(getPostByFilename));
+  const slugs = await getAllSlugs();
+  const posts = await Promise.all(slugs.map(getPostBySlug));
   posts.sort((a, b) => sortByLatest(a.createdAt, b.createdAt));
   return posts;
 }
