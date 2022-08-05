@@ -1,22 +1,32 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import { Cover } from "src/components/cover";
-import { getAllPosts } from "src/utils/post";
+import { LatestPosts } from "src/components/latest-posts";
+import { getLatestPosts, type IPostOutline } from "src/utils/post";
 
-const Page = () => (
+interface IProps {
+  outlines: IPostOutline[];
+}
+
+const Page = ({ outlines }: IProps) => (
   <>
     <Head>
       <title>Blog - MrCai</title>
     </Head>
     <main>
       <Cover />
+      <LatestPosts outlines={outlines} />
     </main>
   </>
 );
 
 export default Page;
 
-export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getAllPosts();
-  return { props: { posts } };
+export const getStaticProps: GetStaticProps<IProps> = async () => {
+  const posts = await getLatestPosts();
+  const outlines = posts.map((post) => {
+    const { content, ...outline } = post;
+    return outline as IPostOutline;
+  });
+  return { props: { outlines } };
 };
