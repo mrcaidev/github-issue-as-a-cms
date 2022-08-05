@@ -17,7 +17,10 @@ const Page = ({ title, description, topic, createdAt, content }: IPost) => {
         <p className="text-base text-dim text-center">{description}</p>
       </section>
       <section className="max-w-5xl px-12 sm:px-24 py-8 mx-auto">
-        <article dangerouslySetInnerHTML={html} className="py-4 article" />
+        <article
+          dangerouslySetInnerHTML={html}
+          className="max-w-none py-4 text-inherit prose dark:prose-invert"
+        />
         <hr className="border-slate-300 dark:border-slate-700 transition-[border]" />
         <div className="flex justify-between items-center py-8">
           <TopicTag topic={topic} />
