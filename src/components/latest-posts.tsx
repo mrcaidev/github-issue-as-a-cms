@@ -1,6 +1,7 @@
 import { m, type Variants } from "framer-motion";
 import { type IPostOutline } from "src/utils/post";
 import { Link } from "./common/link";
+import { Title } from "./common/title";
 import { PostCard } from "./post-card";
 
 const slide: Variants = {
@@ -20,11 +21,8 @@ interface IProps {
 }
 
 export const LatestPosts = ({ outlines }: IProps) => (
-  <section className="max-w-5xl px-12 sm:px-24 py-16 mx-auto">
-    <h2 className="relative w-fit pb-4 text-2xl sm:text-3xl font-semibold transition-colors">
-      Latest
-      <div className="absolute w-[150%] h-0.5 rounded-full bg-sky-800 dark:bg-sky-200 transition-bg" />
-    </h2>
+  <section className="max-w-5xl px-12 sm:px-24 py-8 mx-auto">
+    <Title>Latest</Title>
     <div className="flex flex-col items-center divide-y divide-slate-300 dark:divide-slate-700">
       {outlines.map((outline) => (
         <PostCard key={outline.path} {...outline} />
