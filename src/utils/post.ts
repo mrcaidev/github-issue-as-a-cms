@@ -1,4 +1,4 @@
-import { readdir, readFile, stat } from "fs/promises";
+import { readdir, readFile } from "fs/promises";
 import matter from "gray-matter";
 import { join } from "path";
 import { cwd } from "process";
@@ -21,19 +21,21 @@ export async function getPostByFilename(filename: string) {
   const { data, content } = matter(fileContent);
 
   const path = filename.replace(/\.md$/, "");
-  const { birthtime } = await stat(file);
-  const createdAt = birthtime.toLocaleDateString("en", {
+  const createdAt = new Date(data.createdAt).toLocaleDateString("en", {
     year: "numeric",
     month: "short",
     day: "numeric",
   });
+  const title = data.title ?? DEFAULT_TITLE;
+  const description = data.description ?? DEFAULT_DESCRIPTION;
+  const topic = data.topic ?? DEFAULT_TOPIC;
 
   return {
     path,
     createdAt,
-    title: data.title ?? DEFAULT_TITLE,
-    description: data.description ?? DEFAULT_DESCRIPTION,
-    topic: data.topic ?? DEFAULT_TOPIC,
+    title,
+    description,
+    topic,
     content,
   } as IPost;
 }

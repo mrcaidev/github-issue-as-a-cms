@@ -2,6 +2,7 @@
 title: HTTP 状态码：3xx 重定向响应
 description: HTTP 的 3xx 状态码代表重定向响应。资源不在这个地方，要去别的地方找。
 topic: http
+createdAt: 2022/5/17
 ---
 
 3xx 状态码用于告知客户端，还需要进一步的动作才能完成请求。如果响应头包含 `Location` 字段，则用户代理**可能**会自动跳转到其指定的 URL。
