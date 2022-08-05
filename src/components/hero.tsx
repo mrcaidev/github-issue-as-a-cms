@@ -3,10 +3,10 @@ import { Link } from "./common/link";
 
 const Hero = () => (
   <section className="flex flex-col items-center gap-y-6 sm:gap-y-8 lg:gap-y-10 px-8 py-12 sm:py-20 bg-slate-200 dark:bg-slate-800 shadow-inner transition-bg">
-    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-center transition-colors">
+    <h1 className="font-extrabold text-3xl sm:text-4xl lg:text-5xl text-center transition-colors">
       Welcome to Yuwang Cai&apos;s blog!
     </h1>
-    <p className="text-md sm:text-xl lg:text-2xl text-dim text-center transition-colors">
+    <p className="text-base sm:text-xl lg:text-2xl text-dim text-center">
       I share my&nbsp;
       <strong className="text-sky-800 dark:text-sky-200 transition-colors">
         webdev
