@@ -2,7 +2,7 @@ import { FiBookOpen, FiExternalLink } from "react-icons/fi";
 import { Link } from "./common/link";
 
 export const Cover = () => (
-  <section className="flex flex-col items-center gap-y-6 lg:gap-y-8 pt-36 pb-12 px-8 bg-slate-200 dark:bg-slate-800 shadow-inner transition-bg">
+  <section className="flex flex-col items-center gap-y-6 lg:gap-y-8 pt-32 sm:pt-36 pb-8 sm:pb-12 px-8 bg-slate-200 dark:bg-slate-800 shadow-inner transition-bg">
     <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-center transition-colors">
       Welcome to Yuwang Cai&apos;s blog!
     </h1>
