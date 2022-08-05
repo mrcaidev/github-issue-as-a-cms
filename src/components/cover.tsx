@@ -1,5 +1,5 @@
 import { FiBookOpen, FiExternalLink } from "react-icons/fi";
-import { Link } from "../common/link";
+import { Link } from "./common/link";
 
 export const Cover = () => (
   <section className="flex flex-col items-center gap-y-6 lg:gap-y-8 pt-36 pb-12 px-8 bg-slate-200 dark:bg-slate-800 shadow-inner transition-bg">

@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import Cover from "src/components/cover";
+import { Cover } from "src/components/cover";
 import { getAllPosts } from "src/utils/post";
 
 const Page = () => (
