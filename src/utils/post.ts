@@ -27,6 +27,11 @@ export async function getPostByFilename(filename: string) {
   return { ...data, path, content } as IPost;
 }
 
+export function getPostOutline(post: IPost) {
+  const { content, ...outline } = post;
+  return outline as IPostOutline;
+}
+
 export async function getAllPosts() {
   const filenames = await readdir(postsDirectory);
   return Promise.all(
