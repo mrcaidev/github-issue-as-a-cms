@@ -7,7 +7,11 @@ const Hero = () => (
       Welcome to Yuwang Cai&apos;s blog!
     </h1>
     <p className="text-md sm:text-xl lg:text-2xl text-dim text-center transition-colors">
-      I share my <strong>webdev</strong> experience here.
+      I share my&nbsp;
+      <strong className="text-sky-800 dark:text-sky-200 transition-colors">
+        webdev
+      </strong>
+      &nbsp;experience here.
     </p>
     <div className="flex justify-center gap-2 flex-wrap-reverse sm:gap-x-8">
       <Link
