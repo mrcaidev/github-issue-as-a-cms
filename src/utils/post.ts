@@ -6,7 +6,7 @@ import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, DEFAULT_TOPIC } from "./constants";
 
 const postsDirectory = join(cwd(), "posts");
 
-export interface Post {
+export interface IPost {
   path: string;
   createdAt: string;
   title: string;
@@ -35,7 +35,7 @@ export async function getPostByFilename(filename: string) {
     description: data.description ?? DEFAULT_DESCRIPTION,
     topic: data.topic ?? DEFAULT_TOPIC,
     content,
-  } as Post;
+  } as IPost;
 }
 
 export async function getAllPosts() {
