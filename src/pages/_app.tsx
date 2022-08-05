@@ -16,9 +16,13 @@ const Footer = dynamic(() => import("src/components/footer"));
 const App = ({ Component, pageProps }: AppProps) => (
   <LazyMotion features={features} strict>
     <ThemeProvider>
-      <TopBar />
-      <Component {...pageProps} />
-      <Footer />
+      <div className="flex flex-col min-h-screen">
+        <TopBar />
+        <div className="grow flex">
+          <Component {...pageProps} />
+        </div>
+        <Footer />
+      </div>
     </ThemeProvider>
   </LazyMotion>
 );

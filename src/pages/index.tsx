@@ -13,7 +13,7 @@ const Page = ({ outlines }: IProps) => (
     <Head>
       <title>Blog - MrCai</title>
     </Head>
-    <main>
+    <main className="w-full">
       <Cover />
       <LatestPosts outlines={outlines} />
     </main>
