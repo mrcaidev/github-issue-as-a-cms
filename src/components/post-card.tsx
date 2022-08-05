@@ -2,6 +2,7 @@ import { m, type Variants } from "framer-motion";
 import { formatTime } from "src/utils/datetime";
 import { type IPostOutline } from "src/utils/post";
 import { Link } from "./common/link";
+import { TopicTag } from "./topic-tag";
 
 const slide: Variants = {
   hide: {
@@ -46,12 +47,7 @@ export const PostCard = ({
       >
         {formatTime(createdAt)}
       </time>
-      <Link
-        href={"/topics/" + topic}
-        className="px-2 py-1 rounded-md bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 hover:dark:bg-slate-700 font-semibold text-sm sm:text-base transition-colors"
-      >
-        {topic}
-      </Link>
+      <TopicTag topic={topic} />
     </div>
   </m.div>
 );
