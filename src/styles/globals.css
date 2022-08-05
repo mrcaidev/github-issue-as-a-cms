@@ -21,4 +21,7 @@
   .text-dim {
     @apply text-slate-600 dark:text-slate-400 transition-colors;
   }
+  .article {
+    @apply max-w-none prose dark:prose-invert prose-slate;
+  }
 }

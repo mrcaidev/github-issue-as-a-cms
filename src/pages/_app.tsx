@@ -4,6 +4,7 @@ import "@fontsource/inter/700.css";
 import "@fontsource/inter/800.css";
 import "@fontsource/inter/900.css";
 import { LazyMotion } from "framer-motion";
+import "highlight.js/styles/atom-one-dark.css";
 import { type AppProps } from "next/app";
 import dynamic from "next/dynamic";
 import TopBar from "src/components/top-bar";
