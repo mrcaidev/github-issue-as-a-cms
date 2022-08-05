@@ -2,11 +2,7 @@ import { GetStaticProps } from "next";
 import Head from "next/head";
 import { Cover } from "src/components/cover";
 import { LatestPosts } from "src/components/latest-posts";
-import {
-  getLatestPosts,
-  getPostOutline,
-  type IPostOutline,
-} from "src/utils/post";
+import { getAllPosts, getPostOutline, type IPostOutline } from "src/utils/post";
 
 interface IProps {
   outlines: IPostOutline[];
@@ -27,7 +23,7 @@ const Page = ({ outlines }: IProps) => (
 export default Page;
 
 export const getStaticProps: GetStaticProps<IProps> = async () => {
-  const posts = await getLatestPosts();
-  const outlines = posts.map(getPostOutline);
+  const posts = await getAllPosts();
+  const outlines = posts.slice(0, 5).map(getPostOutline);
   return { props: { outlines } };
 };

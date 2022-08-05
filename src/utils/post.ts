@@ -34,15 +34,8 @@ export function getPostOutline(post: IPost) {
 
 export async function getAllPosts() {
   const filenames = await readdir(postsDirectory);
-  return Promise.all(
-    filenames
-      .filter((filename) => filename.endsWith(".md"))
-      .map(getPostByFilename)
-  );
-}
-
-export async function getLatestPosts(num = 5) {
-  const posts = await getAllPosts();
+  const mdFilenames = filenames.filter((filename) => filename.endsWith(".md"));
+  const posts = await Promise.all(mdFilenames.map(getPostByFilename));
   posts.sort((a, b) => sortByLatest(a.createdAt, b.createdAt));
-  return posts.slice(0, num);
+  return posts;
 }
