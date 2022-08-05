@@ -1,11 +1,14 @@
 import { Head, Html, Main, NextScript } from "next/document";
 
 const Document = () => (
-  <Html lang="en">
+  <Html
+    lang="en"
+    className="scroll-smooth [-webkit-tap-highlight-color:transparent]"
+  >
     <Head>
       <meta name="description" content="Yuwang Cai's blog" />
     </Head>
-    <body>
+    <body className="bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 transition-bg">
       <Main />
       <NextScript />
     </body>

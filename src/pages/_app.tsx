@@ -18,7 +18,7 @@ const App = ({ Component, pageProps }: AppProps) => (
     <ThemeProvider>
       <div className="flex flex-col min-h-screen">
         <TopBar />
-        <div className="grow flex">
+        <div className="grow mt-20">
           <Component {...pageProps} />
         </div>
         <Footer />

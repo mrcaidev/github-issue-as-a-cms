@@ -11,10 +11,10 @@ export const NavigationLinks = () => {
         <Link
           key={name}
           href={href}
-          className={`ghost px-4 text-lg text-center font-semibold hover:text-slate-700 hover:dark:text-slate-300 ${
+          className={`px-4 py-2 rounded-md bg-ghost font-semibold text-lg text-link text-center ${
             pathname.startsWith(href)
-              ? ""
-              : "text-slate-600 dark:text-slate-400"
+              ? "text-sky-800 dark:text-sky-200"
+              : "text-dim"
           }`}
         >
           {name}

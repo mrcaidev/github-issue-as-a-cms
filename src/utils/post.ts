@@ -23,11 +23,10 @@ export async function getPostByFilename(filename: string) {
   const file = join(postsDirectory, filename);
   const fileContent = await readFile(file, { encoding: "utf-8" });
   const { data, content } = matter(fileContent);
-
   return { ...data, path, content } as IPost;
 }
 
-export function getPostOutline(post: IPost) {
+export function getOutline(post: IPost) {
   const { content, ...outline } = post;
   return outline as IPostOutline;
 }
