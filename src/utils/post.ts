@@ -2,15 +2,19 @@ import { readdir, readFile } from "fs/promises";
 import matter from "gray-matter";
 import { join } from "path";
 import { cwd } from "process";
+import { sortByLatest } from "./datetime";
 
 const postsDirectory = join(cwd(), "posts");
 
-export interface IPost {
+export interface IPostOutline {
   path: string;
   createdAt: string;
   title: string;
   description: string;
   topic: string;
+}
+
+export interface IPost extends IPostOutline {
   content: string;
 }
 
@@ -30,4 +34,10 @@ export async function getAllPosts() {
       .filter((filename) => filename.endsWith(".md"))
       .map(getPostByFilename)
   );
+}
+
+export async function getLatestPosts(num = 5) {
+  const posts = await getAllPosts();
+  posts.sort((a, b) => sortByLatest(a.createdAt, b.createdAt));
+  return posts.slice(0, num);
 }
