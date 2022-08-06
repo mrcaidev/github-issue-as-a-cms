@@ -1,7 +1,6 @@
 import { type GetStaticPaths, type GetStaticProps } from "next";
 import Head from "next/head";
-import { FiArrowLeft } from "react-icons/fi";
-import { Link } from "src/components/common/link";
+import { ArrowLink } from "src/components/arrow-link";
 import { Title } from "src/components/common/title";
 import { PostStack } from "src/components/post-stack";
 import {
@@ -27,12 +26,9 @@ const Page = ({ topic, outlines }: IProps) => (
           Topic - <span className="italic">{topic}</span>
         </Title>
         <PostStack outlines={outlines} />
-        <div className="py-8 text-center animate-rise">
-          <Link href="/topics" className="px-4 py-2 rounded-md bg-ghost">
-            <FiArrowLeft className="inline-block w-5 -translate-y-0.5" />
-            &nbsp;Back to topics
-          </Link>
-        </div>
+        <ArrowLink href="/topics" direction="left">
+          Back to topics
+        </ArrowLink>
       </section>
     </main>
   </>

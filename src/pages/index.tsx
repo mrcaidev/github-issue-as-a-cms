@@ -1,7 +1,6 @@
 import { type GetStaticProps } from "next";
 import Head from "next/head";
-import { FiArrowRight } from "react-icons/fi";
-import { Link } from "src/components/common/link";
+import { ArrowLink } from "src/components/arrow-link";
 import { Title } from "src/components/common/title";
 import { Hero } from "src/components/hero";
 import { PostStack } from "src/components/post-stack";
@@ -21,12 +20,7 @@ const Page = ({ outlines }: IProps) => (
       <section className="max-w-5xl px-12 sm:px-24 py-8 mx-auto">
         <Title>Latest</Title>
         <PostStack outlines={outlines} />
-        <div className="py-8 text-center animate-rise">
-          <Link href="/posts" className="px-4 py-2 rounded-md bg-ghost">
-            All Posts&nbsp;
-            <FiArrowRight className="inline-block w-5 -translate-y-0.5" />
-          </Link>
-        </div>
+        <ArrowLink href="/posts">All Posts</ArrowLink>
       </section>
     </main>
   </>
