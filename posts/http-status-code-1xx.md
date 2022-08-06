@@ -49,7 +49,7 @@ createdAt: 2022/5/17
 
 ## 101 Switching Protocols
 
-> 只在 HTTP/1.1 中出现。
+只在 HTTP/1.1 中出现。
 
 服务器同意按客户端需求升级协议，比如从 HTTP/1.1 升级到 HTTP/2.0 或者 WebSocket。详细过程见 [MDN：协议升级机制](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Protocol_upgrade_mechanism)。
 

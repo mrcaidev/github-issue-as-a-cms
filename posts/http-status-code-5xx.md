@@ -19,13 +19,13 @@ createdAt: 2022/5/17
 
 与 405 Method Not Allowed 的区别在于，405 Method Not Allowed 代表着“服务器知道这是什么方法，但明确禁止使用它”，而 501 Not Implemented 代表着“服务器不知道这是什么方法，本身就不支持响应它”。
 
-> 比如用户自定义了一些奇怪的方法。
+比如用户自定义了一些奇怪的方法。
 
 ## 502 Bad Gateway
 
 服务器作为网关或代理，从上游服务器中接收到的响应无效。这个错误一般不是网站提供者能解决的。
 
-> 比如用户访问的一个 API 需要访问另一个第三方的 API，但这个第三方的 API 出了问题，那么原来的 API 就会给用户返回 502 Bad Gateway。
+比如用户访问的一个 API 需要访问另一个第三方的 API，但这个第三方的 API 出了问题，那么原来的 API 就会给用户返回 502 Bad Gateway。
 
 ## 503 Service Unavailable
 

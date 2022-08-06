@@ -9,7 +9,7 @@ createdAt: 2022/8/4
 
 如果不加拦截器，Axios 返回的数据并不是响应本身，而是这样的一个数据结构：
 
-```jsonc
+```json
 {
   "data": {
     // 真正的数据
@@ -77,7 +77,7 @@ declare module "axios" {
 
 然后，在 tsconfig.json 里通知 TypeScript 使用新的签名。
 
-```jsonc
+```json
 // tsconfig.json
 {
   // ...

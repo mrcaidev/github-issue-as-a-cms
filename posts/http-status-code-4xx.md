@@ -11,13 +11,13 @@ createdAt: 2022/5/17
 
 客户端的请求语法错误，服务器无法理解。
 
-> 比如某个值应该是数字，却收到了字符串。
+比如某个值应该是数字，却收到了字符串。
 
 ## 401 Unauthorized
 
 客户端没有进行身份验证，却试图访问需要身份验证的资源。
 
-> 比如用户还没有登录。
+比如用户还没有登录。
 
 ## 402 Payment Required
 
@@ -29,13 +29,13 @@ createdAt: 2022/5/17
 
 它和 401 Unauthorized 的主要区别在于：401 Unauthorized 代表着“服务器不知道客户端是谁”，而 403 Forbidden 代表着“服务器知道客户端是谁，但客户端权限不够高，服务器拒绝展示资源”。
 
-> 比如某用户试图访问别人的余额、手机号等私密资料，或者是普通用户试图进入后台管理界面。
+比如某用户试图访问别人的余额、手机号等私密资料，或者是普通用户试图进入后台管理界面。
 
 ## 404 Not Found
 
 服务器找不到客户端要求的资源。默认可缓存。
 
-> 比如用户访问了一个不存在的页面，或者请求了一个不存在的用户的资料。
+比如用户访问了一个不存在的页面，或者请求了一个不存在的用户的资料。
 
 ## 405 Method Not Allowed
 
@@ -43,7 +43,7 @@ createdAt: 2022/5/17
 
 同时，服务器**必须**在同一响应的 `Allow` 字段内，附上可接受的请求方法的列表。
 
-> 比如不能对某一个 API 使用 DELETE 方法。
+比如不能对某一个 API 使用 DELETE 方法。
 
 ## 406 Not Acceptable
 
@@ -67,7 +67,7 @@ createdAt: 2022/5/17
 
 客户端请求与服务器当前资源状态发生冲突。
 
-> 比如重复创建一个用户，或者上传了新文档的旧版本。
+比如重复创建一个用户，或者上传了新文档的旧版本。
 
 ## 410 Gone
 
@@ -105,7 +105,7 @@ createdAt: 2022/5/17
 
 服务器有可能直接检测了请求头的 `Content-Type` 和 `Content-Encoding`，也有可能直接检测了请求体数据。
 
-> 比如服务端希望拿到 application/json 类型的数据，但客户端上传了 image/gif 类型的数据。
+比如服务端希望拿到 application/json 类型的数据，但客户端上传了 image/gif 类型的数据。
 
 ## 416 Range Not Satisfiable
 
@@ -117,7 +117,7 @@ createdAt: 2022/5/17
 
 服务器无法满足请求头中 `Expect` 字段指明的条件。
 
-> 比如拒绝 `Expect: 100-continue`。
+比如拒绝 `Expect: 100-continue`。
 
 ## 422 Unprocessable Entity
 
@@ -127,7 +127,7 @@ createdAt: 2022/5/17
 
 它和 415 Unsupported Media Type 的主要区别在于，415 Unsupported Media Type 代表着“服务器不支持这种 MIME 类型”，而 422 Unprocessable Entity 代表着“服务器支持这种 MIME 类型，但具体的数据出了错”。
 
-> 比如有一个让用户评分 1-5 星的 API，服务器可能希望收到一条 3 星的评价 `{ "rating": 3 }`，但却收到了一条 6 星的评价 `{ "rating": 6 }`。后者的 MIME 类型的确是 application/json（所以不是 415 Unsupported Media Type），`rating` 字段也确实是数字（所以不是 400 Bad Request），但这个数字的语义却不正确，导致服务器拒绝处理。
+比如有一个让用户评分 1-5 星的 API，服务器可能希望收到一条 3 星的评价 `{ "rating": 3 }`，但却收到了一条 6 星的评价 `{ "rating": 6 }`。后者的 MIME 类型的确是 application/json（所以不是 415 Unsupported Media Type），`rating` 字段也确实是数字（所以不是 400 Bad Request），但这个数字的语义却不正确，导致服务器拒绝处理。
 
 ## 426 Upgrade Required
 
@@ -135,10 +135,10 @@ createdAt: 2022/5/17
 
 服务器**应当**在响应头的 `Upgrade` 字段指明期望的协议。
 
-> 比如服务器期望使用 HTTP/2.0，但收到了 HTTP/1.1 的请求。
+比如服务器期望使用 HTTP/2.0，但收到了 HTTP/1.1 的请求。
 
 ## 429 Too Many Requests
 
 客户端请求频率超过限制。
 
-> 比如爬虫爬太快。
+比如爬虫爬太快。
