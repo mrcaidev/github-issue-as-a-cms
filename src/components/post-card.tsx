@@ -1,20 +1,7 @@
-import { m, type Variants } from "framer-motion";
 import { formatTime } from "src/utils/datetime";
 import { type IPostOutline } from "src/utils/post";
 import { Link } from "./common/link";
 import { TopicTag } from "./topic-tag";
-
-const slide: Variants = {
-  hide: {
-    x: -30,
-    opacity: 0,
-  },
-  show: {
-    x: 0,
-    opacity: 1,
-    transition: { type: "tween", duration: 0.5 },
-  },
-};
 
 export const PostCard = ({
   slug,
@@ -23,7 +10,7 @@ export const PostCard = ({
   topic,
   createdAt,
 }: IPostOutline) => (
-  <m.div variants={slide} className="w-full py-8 transition-[border]">
+  <div className="w-full py-8 transition-[border]">
     <h3>
       <Link
         href={"/posts/" + slug}
@@ -44,5 +31,5 @@ export const PostCard = ({
       </time>
       <TopicTag topic={topic} />
     </div>
-  </m.div>
+  </div>
 );

@@ -1,69 +1,27 @@
 import { useBoolean, useFocusTrap, useKeydown } from "@mrcaidev/hooks";
-import { AnimatePresence, m, type Variants } from "framer-motion";
 import { useRef, type PropsWithChildren } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { GithubLink } from "./github-link";
 import { NavigationLinks } from "./navigation-links";
 import { ThemeToggler } from "./theme-toggler";
 
-const fadeInOut: Variants = {
-  hide: {
-    opacity: 0,
-  },
-  show: {
-    opacity: 0.6,
-    transition: { duration: 0.1 },
-  },
-  exit: {
-    opacity: 0,
-    transition: { duration: 0.1 },
-  },
-};
-
-const slide: Variants = {
-  hide: {
-    x: 200,
-  },
-  show: {
-    x: 0,
-    transition: { duration: 0.1 },
-  },
-  exit: {
-    x: 200,
-    transition: { duration: 0.1 },
-  },
-};
-
 interface IProps extends PropsWithChildren {
   show: boolean;
 }
 
-export const SideMenuContainer = ({ show, children }: IProps) => (
-  <AnimatePresence>
-    {show && (
-      <>
-        <m.div
-          variants={fadeInOut}
-          initial="hide"
-          animate="show"
-          exit="exit"
-          className="fixed top-0 left-0 w-screen h-screen bg-slate-800 z-20"
-        />
-        <m.div
-          role="dialog"
-          aria-label="Sidebar menu"
-          variants={slide}
-          initial="hide"
-          animate="show"
-          exit="exit"
-          className="flex flex-col justify-between items-center fixed top-0 right-0 h-screen px-8 py-5 rounded-l-2xl bg-slate-100 dark:bg-slate-900 shadow-2xl transition-bg z-30"
-        >
-          {children}
-        </m.div>
-      </>
-    )}
-  </AnimatePresence>
-);
+export const SideMenuContainer = ({ show, children }: IProps) =>
+  show ? (
+    <>
+      <div className="fixed top-0 left-0 w-screen h-screen bg-slate-800 opacity-60 z-20" />
+      <div
+        role="dialog"
+        aria-label="Sidebar menu"
+        className="flex flex-col justify-between items-center fixed top-0 right-0 h-screen px-8 py-5 rounded-l-2xl bg-slate-100 dark:bg-slate-900 shadow-2xl transition-bg z-30"
+      >
+        {children}
+      </div>
+    </>
+  ) : null;
 
 export const SideMenu = () => {
   const { value: shouldShow, on: showModal, off: hideModal } = useBoolean();

@@ -14,7 +14,6 @@
     "@fontsource/inter": "^4.5.11",
     "@mrcaidev/hooks": "^0.3.0",
     "@next/bundle-analyzer": "^12.2.4",
-    "framer-motion": "^6.5.1",
     "gray-matter": "^4.0.3",
     "marked": "^4.0.18",
     "next": "^12.2.3",
