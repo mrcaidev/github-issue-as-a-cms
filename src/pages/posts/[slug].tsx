@@ -12,7 +12,7 @@ const Page = ({ title, description, topic, createdAt, content }: IPost) => {
   return (
     <>
       <Head>
-        <title>{title} - MrCai</title>
+        <title>{title + " - MrCai"}</title>
       </Head>
       <main>
         <section className="flex flex-col items-center gap-y-6 sm:gap-y-8 lg:gap-y-10 px-8 py-12 sm:py-20 bg-slate-200 dark:bg-slate-800 shadow-inner transition-bg">
