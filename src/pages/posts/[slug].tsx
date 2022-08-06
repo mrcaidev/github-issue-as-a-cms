@@ -11,16 +11,13 @@ const Page = ({ title, description, topic, createdAt, content }: IPost) => {
   return (
     <main>
       <section className="flex flex-col items-center gap-y-6 sm:gap-y-8 lg:gap-y-10 px-8 py-12 sm:py-20 bg-slate-200 dark:bg-slate-800 shadow-inner transition-bg">
-        <h1 className="font-semibold text-3xl sm:text-4xl lg:text-5xl text-center transition-colors">
+        <h1 className="font-bold text-3xl sm:text-4xl lg:text-5xl text-center transition-colors">
           {title}
         </h1>
         <p className="text-base text-dim text-center">{description}</p>
       </section>
       <section className="max-w-5xl px-12 sm:px-24 py-8 mx-auto">
-        <article
-          dangerouslySetInnerHTML={html}
-          className="max-w-none py-4 text-inherit prose dark:prose-invert"
-        />
+        <article dangerouslySetInnerHTML={html} className="article" />
         <hr className="border-slate-300 dark:border-slate-700 transition-[border]" />
         <div className="flex justify-between items-center py-8">
           <TopicTag topic={topic} />
