@@ -6,7 +6,7 @@ import "@fontsource/inter/900.css";
 import { LazyMotion } from "framer-motion";
 import { type AppProps } from "next/app";
 import dynamic from "next/dynamic";
-import TopBar from "src/components/top-bar";
+import { TopBar } from "src/components/top-bar";
 import { ThemeProvider } from "src/contexts/theme.context";
 import "src/styles/globals.css";
 import "src/styles/one-dark.css";
