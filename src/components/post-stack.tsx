@@ -7,8 +7,8 @@ interface IProps {
 
 export const PostStack = ({ outlines }: IProps) => (
   <div className="flex flex-col items-center divide-y divide-slate-300 dark:divide-slate-700">
-    {outlines.map((outline) => (
-      <PostCard key={outline.slug} {...outline} />
+    {outlines.map((outline, index) => (
+      <PostCard key={outline.slug} index={index} outline={outline} />
     ))}
   </div>
 );

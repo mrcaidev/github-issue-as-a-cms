@@ -3,14 +3,22 @@ import { type IPostOutline } from "src/utils/post";
 import { Link } from "./common/link";
 import { TopicTag } from "./topic-tag";
 
+interface IProps {
+  index?: number;
+  outline: IPostOutline;
+}
+
 export const PostCard = ({
-  slug,
-  title,
-  description,
-  topic,
-  createdAt,
-}: IPostOutline) => (
-  <div className="w-full py-8 transition-[border]">
+  index = 0,
+  outline: { slug, title, description, topic, createdAt },
+}: IProps) => (
+  <div
+    className="w-full py-8 animate-leftslide transition-[border]"
+    style={{
+      animationDelay: `${index * 0.2}s`,
+      animationFillMode: "backwards",
+    }}
+  >
     <h3>
       <Link
         href={"/posts/" + slug}

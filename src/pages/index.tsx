@@ -21,7 +21,7 @@ const Page = ({ outlines }: IProps) => (
       <section className="max-w-5xl px-12 sm:px-24 py-8 mx-auto">
         <Title>Latest</Title>
         <PostStack outlines={outlines} />
-        <div className="py-8 text-center">
+        <div className="py-8 text-center animate-rise">
           <Link href="/posts" className="px-4 py-2 rounded-md bg-ghost">
             All Posts&nbsp;
             <FiArrowRight className="inline-block w-5 -translate-y-0.5" />

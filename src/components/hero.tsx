@@ -16,14 +16,14 @@ export const Hero = () => (
     <div className="flex justify-center gap-2 flex-wrap-reverse sm:gap-x-8">
       <Link
         href="https://mrcai.space"
-        className="px-6 py-3 rounded-lg font-semibold text-base sm:text-lg text-link hover:shadow-md transition"
+        className="px-6 py-3 rounded-lg font-semibold text-base sm:text-lg text-link hover:shadow-md transition-[color,box-shadow]"
       >
         <FiExternalLink className="inline-block mr-3 w-5 -translate-y-0.5" />
         Homepage
       </Link>
       <Link
         href="/posts"
-        className="px-6 py-3 rounded-lg bg-sky-200 dark:bg-sky-800 hover:brightness-95 active:brightness-90 font-semibold text-base sm:text-lg shadow-md transition"
+        className="px-6 py-3 rounded-lg bg-sky-200 dark:bg-sky-800 hover:brightness-95 active:brightness-90 font-semibold text-base sm:text-lg shadow-md transition-[color,background-color,filter]"
       >
         <FiBookOpen className="inline-block mr-3 w-5 -translate-y-0.5" />
         All Posts

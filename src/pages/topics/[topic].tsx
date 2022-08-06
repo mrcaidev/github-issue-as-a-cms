@@ -27,7 +27,7 @@ const Page = ({ topic, outlines }: IProps) => (
           Topic - <span className="italic">{topic}</span>
         </Title>
         <PostStack outlines={outlines} />
-        <div className="py-8 text-center">
+        <div className="py-8 text-center animate-rise">
           <Link href="/topics" className="px-4 py-2 rounded-md bg-ghost">
             <FiArrowLeft className="inline-block w-5 -translate-y-0.5" />
             &nbsp;Back to topics

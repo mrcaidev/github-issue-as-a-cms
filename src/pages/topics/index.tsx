@@ -17,9 +17,9 @@ const Page = ({ topics }: IProps) => (
       <section className="max-w-5xl px-12 sm:px-24 py-8 mx-auto">
         <Title>Topics</Title>
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 py-4">
-          {Object.entries(topics).map(([topic, num]) => (
+          {Object.entries(topics).map(([topic, num], index) => (
             <li key={topic}>
-              <TopicCard topic={topic} num={num} />
+              <TopicCard index={index} topic={topic} num={num} />
             </li>
           ))}
         </ul>
