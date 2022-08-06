@@ -15,7 +15,7 @@ const Page = ({ outlines }: IProps) => (
     <Head>
       <title>Blog - MrCai</title>
     </Head>
-    <main>
+    <main className="w-full">
       <Hero />
       <section className="max-w-5xl px-12 sm:px-24 py-8 mx-auto">
         <Title>Latest</Title>

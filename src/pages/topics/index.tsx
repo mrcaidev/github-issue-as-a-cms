@@ -13,7 +13,7 @@ const Page = ({ topics }: IProps) => (
     <Head>
       <title>Topics - MrCai</title>
     </Head>
-    <main>
+    <main className="w-full">
       <section className="max-w-5xl px-12 sm:px-24 py-8 mx-auto">
         <Title>Topics</Title>
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 py-4">

@@ -23,7 +23,7 @@ const Page = ({
       <Head>
         <title>{title + " - MrCai"}</title>
       </Head>
-      <main>
+      <main className="w-full">
         <section className="flex flex-col items-center gap-y-6 sm:gap-y-8 lg:gap-y-10 px-8 py-12 sm:py-20 bg-slate-200 dark:bg-slate-800 shadow-inner transition-bg">
           <h1 className="font-bold text-3xl sm:text-4xl lg:text-5xl text-center transition-colors">
             {title}

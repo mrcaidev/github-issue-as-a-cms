@@ -20,7 +20,7 @@ const Page = ({ topic, outlines }: IProps) => (
     <Head>
       <title>{topic + " - MrCai"}</title>
     </Head>
-    <main>
+    <main className="w-full">
       <section className="max-w-5xl px-12 sm:px-24 py-8 mx-auto">
         <Title>
           Topic - <span className="italic">{topic}</span>
