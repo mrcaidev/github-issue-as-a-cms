@@ -50,6 +50,8 @@ export const SideMenu = () => {
   useEffect(() => {
     router.events.on("routeChangeStart", hideModal);
     return () => router.events.off("routeChangeStart", hideModal);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
