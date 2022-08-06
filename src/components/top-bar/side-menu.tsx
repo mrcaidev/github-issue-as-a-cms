@@ -1,5 +1,5 @@
 import { useBoolean, useFocusTrap, useKeydown } from "@mrcaidev/hooks";
-import { useRef, type PropsWithChildren } from "react";
+import { useEffect, useRef, type PropsWithChildren } from "react";
 import { createPortal } from "react-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import { GithubLink } from "./github-link";
@@ -30,15 +30,25 @@ export const SideMenuContainer = ({ show, children }: IProps) =>
 export const SideMenu = () => {
   const { value: shouldShow, on: showModal, off: hideModal } = useBoolean();
 
+  const openRef = useRef<HTMLButtonElement>(null);
   const firstRef = useRef<HTMLButtonElement>(null);
   const lastRef = useRef<HTMLButtonElement>(null);
   useFocusTrap(firstRef, lastRef);
 
   useKeydown("Escape", hideModal);
 
+  useEffect(() => {
+    if (shouldShow) {
+      firstRef.current?.focus();
+    } else {
+      openRef.current?.focus();
+    }
+  }, [shouldShow]);
+
   return (
     <>
       <button
+        ref={openRef}
         onClick={showModal}
         aria-label="Open sidebar menu"
         className="p-2 rounded-md bg-ghost"
