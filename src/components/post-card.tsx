@@ -23,12 +23,7 @@ export const PostCard = ({
   topic,
   createdAt,
 }: IPostOutline) => (
-  <m.div
-    variants={slide}
-    initial="hide"
-    whileInView="show"
-    className="w-full py-8 transition-[border]"
-  >
+  <m.div variants={slide} className="w-full py-8 transition-[border]">
     <h3>
       <Link
         href={"/posts/" + slug}

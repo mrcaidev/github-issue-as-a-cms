@@ -23,7 +23,7 @@ const Page = ({ outlines }: IProps) => (
         <PostStack outlines={outlines} />
         <div className="py-8 text-center">
           <Link href="/posts" className="px-4 py-2 rounded-md bg-ghost">
-            All Posts{" "}
+            All Posts&nbsp;
             <FiArrowRight className="inline-block w-5 -translate-y-0.5" />
           </Link>
         </div>

@@ -10,7 +10,7 @@ export const TopicCard = ({ topic, num }: IProps) => (
     <h2>
       <Link
         href={"/topics/" + topic}
-        className="font-bold text-lg sm:text-2xl text-link before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0"
+        className="px-2 py-1 font-bold text-lg sm:text-2xl text-link before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0"
       >
         {topic}
       </Link>
