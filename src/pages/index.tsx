@@ -3,7 +3,7 @@ import Head from "next/head";
 import { FiArrowRight } from "react-icons/fi";
 import { Link } from "src/components/common/link";
 import { Title } from "src/components/common/title";
-import Hero from "src/components/hero";
+import { Hero } from "src/components/hero";
 import { PostCard } from "src/components/post-card";
 import { getAllPosts, getOutline, type IPostOutline } from "src/utils/post";
 
