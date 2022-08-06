@@ -1,13 +1,21 @@
 import { type GetStaticPaths, type GetStaticProps } from "next";
 import Head from "next/head";
 import { useMemo } from "react";
+import { FiClock } from "react-icons/fi";
 import { ArrowLink } from "src/components/arrow-link";
 import { TopicTag } from "src/components/topic-tag";
 import { formatTime } from "src/utils/datetime";
 import { parseMd } from "src/utils/markdown";
 import { getAllSlugs, getPostBySlug, type IPost } from "src/utils/post";
 
-const Page = ({ title, description, topic, createdAt, content }: IPost) => {
+const Page = ({
+  createdAt,
+  title,
+  description,
+  topic,
+  readingTime,
+  content,
+}: IPost) => {
   const html = useMemo(() => ({ __html: parseMd(content) }), [content]);
 
   return (
@@ -21,6 +29,10 @@ const Page = ({ title, description, topic, createdAt, content }: IPost) => {
             {title}
           </h1>
           <p className="text-base text-dim text-center">{description}</p>
+          <p className="text-dim">
+            <FiClock className="inline-block w-5 mr-2 -translate-y-0.5" />
+            {readingTime}
+          </p>
         </section>
         <section className="max-w-5xl px-12 sm:px-24 py-8 mx-auto">
           <article dangerouslySetInnerHTML={html} className="article" />

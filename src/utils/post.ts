@@ -2,6 +2,7 @@ import { readdir, readFile } from "fs/promises";
 import matter from "gray-matter";
 import { join } from "path";
 import { cwd } from "process";
+import readingTime from "reading-time";
 import { sortByLatest } from "./datetime";
 
 const postsDirectory = join(cwd(), "posts");
@@ -12,6 +13,7 @@ export interface IPostOutline {
   title: string;
   description: string;
   topic: string;
+  readingTime: string;
 }
 
 export interface IPost extends IPostOutline {
@@ -34,7 +36,8 @@ export async function getPostBySlug(slug: string) {
   const filePath = join(postsDirectory, slug + ".md");
   const fileContent = await readFile(filePath, { encoding: "utf-8" });
   const { data, content } = matter(fileContent);
-  return { ...data, slug, content } as IPost;
+  const { text } = readingTime(content);
+  return { ...data, slug, readingTime: text, content } as IPost;
 }
 
 export async function getAllPosts() {
