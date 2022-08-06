@@ -4,7 +4,7 @@ import { FiArrowRight } from "react-icons/fi";
 import { Link } from "src/components/common/link";
 import { Title } from "src/components/common/title";
 import { Hero } from "src/components/hero";
-import { PostCard } from "src/components/post-card";
+import { PostStack } from "src/components/post-stack";
 import { getAllPosts, getOutline, type IPostOutline } from "src/utils/post";
 
 interface IProps {
@@ -20,11 +20,7 @@ const Page = ({ outlines }: IProps) => (
       <Hero />
       <section className="max-w-5xl px-12 sm:px-24 py-8 mx-auto">
         <Title>Latest</Title>
-        <div className="flex flex-col items-center divide-y divide-slate-300 dark:divide-slate-700">
-          {outlines.map((outline) => (
-            <PostCard key={outline.slug} {...outline} />
-          ))}
-        </div>
+        <PostStack outlines={outlines} />
         <div className="py-8 text-center">
           <Link href="/posts" className="px-4 py-2 rounded-md bg-ghost">
             All Posts{" "}

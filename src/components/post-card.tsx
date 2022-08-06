@@ -17,7 +17,7 @@ const slide: Variants = {
 };
 
 export const PostCard = ({
-  slug: path,
+  slug,
   title,
   description,
   topic,
@@ -31,7 +31,7 @@ export const PostCard = ({
   >
     <h3>
       <Link
-        href={"/posts/" + path}
+        href={"/posts/" + slug}
         className="py-1 font-bold text-lg sm:text-xl text-link"
       >
         {title}

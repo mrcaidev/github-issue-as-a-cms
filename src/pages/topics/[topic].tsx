@@ -3,7 +3,7 @@ import Head from "next/head";
 import { FiArrowLeft } from "react-icons/fi";
 import { Link } from "src/components/common/link";
 import { Title } from "src/components/common/title";
-import { PostCard } from "src/components/post-card";
+import { PostStack } from "src/components/post-stack";
 import {
   getAllTopics,
   getOutline,
@@ -26,11 +26,7 @@ const Page = ({ topic, outlines }: IProps) => (
         <Title>
           Topic - <span className="italic">{topic}</span>
         </Title>
-        <div className="flex flex-col items-center divide-y divide-slate-300 dark:divide-slate-700">
-          {outlines.map((outline) => (
-            <PostCard key={outline.slug} {...outline} />
-          ))}
-        </div>
+        <PostStack outlines={outlines} />
         <div className="py-8 text-center">
           <Link href="/topics" className="px-4 py-2 rounded-md bg-ghost">
             <FiArrowLeft className="inline-block w-5 -translate-y-0.5" />

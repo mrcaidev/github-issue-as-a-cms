@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import { Title } from "src/components/common/title";
-import { PostCard } from "src/components/post-card";
+import { PostStack } from "src/components/post-stack";
 import { getAllPosts, getOutline, IPostOutline } from "src/utils/post";
 
 interface IProps {
@@ -16,11 +16,7 @@ const Page = ({ outlines }: IProps) => (
     <main>
       <section className="max-w-5xl px-12 sm:px-24 py-8 mx-auto">
         <Title>Posts</Title>
-        <div className="flex flex-col items-center divide-y divide-slate-300 dark:divide-slate-700">
-          {outlines.map((outline) => (
-            <PostCard key={outline.slug} {...outline} />
-          ))}
-        </div>
+        <PostStack outlines={outlines} />
       </section>
     </main>
   </>
