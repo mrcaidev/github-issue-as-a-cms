@@ -1,4 +1,5 @@
 import { useBoolean, useFocusTrap, useKeydown } from "@mrcaidev/hooks";
+import { useRouter } from "next/router";
 import { useEffect, useRef, type PropsWithChildren } from "react";
 import { createPortal } from "react-dom";
 import { FiMenu, FiX } from "react-icons/fi";
@@ -44,6 +45,12 @@ export const SideMenu = () => {
       openRef.current?.focus();
     }
   }, [shouldShow]);
+
+  const router = useRouter();
+  useEffect(() => {
+    router.events.on("routeChangeStart", hideModal);
+    return () => router.events.off("routeChangeStart", hideModal);
+  }, []);
 
   return (
     <>
