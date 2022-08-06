@@ -62,3 +62,9 @@ export async function getAllTopics() {
   const sortedTopics = sortTopicByName(topics);
   return sortedTopics;
 }
+
+export async function getPostsByTopic(topic: string) {
+  const posts = await getAllPosts();
+  const postsByTopic = posts.filter((post) => post.topic === topic);
+  return postsByTopic;
+}
