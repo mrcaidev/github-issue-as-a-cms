@@ -1,13 +1,15 @@
-import hljs from "highlight.js";
 import { marked } from "marked";
+import prism from "prismjs";
+import "prismjs/components/prism-json";
+import "prismjs/components/prism-typescript";
 
 marked.setOptions({
   highlight: (code, lang) => {
-    const language = hljs.getLanguage(lang)?.name ?? "plaintext";
-    return hljs.highlight(code, { language }).value;
+    const grammer = prism.languages[lang];
+    return grammer ? prism.highlight(code, grammer, lang) : code;
   },
 });
 
-export function parseMd(markdown: string) {
-  return marked.parse(markdown);
+export function parseMd(content: string) {
+  return marked.parse(content);
 }
