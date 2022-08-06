@@ -19,7 +19,7 @@ interface IProps {
 const Page = ({ topic, outlines }: IProps) => (
   <>
     <Head>
-      <title>{topic} - MrCai</title>
+      <title>{topic + " - MrCai"}</title>
     </Head>
     <main>
       <section className="max-w-5xl px-12 sm:px-24 py-8 mx-auto">
