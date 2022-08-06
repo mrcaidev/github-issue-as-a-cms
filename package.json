@@ -7,11 +7,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "analyze": "ANALYZE=true pnpm build",
     "prepare": "husky install"
   },
   "dependencies": {
     "@fontsource/inter": "^4.5.11",
     "@mrcaidev/hooks": "^0.3.0",
+    "@next/bundle-analyzer": "^12.2.4",
     "framer-motion": "^6.5.1",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.6.0",
