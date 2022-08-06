@@ -14,18 +14,6 @@ const leftSlide: Variants = {
   },
 };
 
-const rightSlide: Variants = {
-  hide: {
-    x: 30,
-    opacity: 0,
-  },
-  show: {
-    x: 0,
-    opacity: 1,
-    transition: { type: "tween", duration: 1 },
-  },
-};
-
 const rise: Variants = {
   hide: {
     y: 30,
@@ -40,16 +28,11 @@ const rise: Variants = {
 
 export const Hero = () => (
   <section className="flex flex-col items-center gap-y-6 sm:gap-y-8 lg:gap-y-10 px-8 py-12 sm:py-20 bg-slate-200 dark:bg-slate-800 shadow-inner transition-bg">
-    <m.h1
-      variants={leftSlide}
-      initial="hide"
-      whileInView="show"
-      className="font-extrabold text-3xl sm:text-4xl lg:text-5xl text-center transition-colors"
-    >
+    <h1 className="font-extrabold text-3xl sm:text-4xl lg:text-5xl text-center transition-colors">
       Welcome to Yuwang Cai&apos;s blog!
-    </m.h1>
+    </h1>
     <m.p
-      variants={rightSlide}
+      variants={leftSlide}
       initial="hide"
       whileInView="show"
       className="text-base sm:text-xl lg:text-2xl text-dim text-center"
