@@ -1,6 +1,7 @@
 import { type GetStaticPaths, type GetStaticProps } from "next";
 import Head from "next/head";
 import { useMemo } from "react";
+import { ArrowLink } from "src/components/arrow-link";
 import { TopicTag } from "src/components/topic-tag";
 import { formatTime } from "src/utils/datetime";
 import { parseMd } from "src/utils/markdown";
@@ -33,6 +34,9 @@ const Page = ({ title, description, topic, createdAt, content }: IPost) => {
               {formatTime(createdAt)}
             </time>
           </div>
+          <ArrowLink href="/posts" direction="left">
+            Back to posts
+          </ArrowLink>
         </section>
       </main>
     </>
