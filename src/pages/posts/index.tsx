@@ -42,7 +42,7 @@ export const getServerSideProps: GetServerSideProps<IProps> = async ({
   const page = getPageFromQuery(query);
   const begin = (page - 1) * POSTS_PER_PAGE;
 
-  const posts = await getAllPosts();
+  const posts = getAllPosts();
   const totalPages = ~~(posts.length / POSTS_PER_PAGE) + 1;
 
   const allOutlines = posts.map(getOutline);

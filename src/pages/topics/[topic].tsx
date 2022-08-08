@@ -37,7 +37,7 @@ const Page = ({ topic, outlines }: IProps) => (
 export default Page;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const topics = await getAllTopics();
+  const topics = getAllTopics();
   const paths = Object.keys(topics).map((topic) => ({ params: { topic } }));
   return { paths, fallback: false };
 };
@@ -46,7 +46,7 @@ export const getStaticProps: GetStaticProps<IProps> = async (context) => {
   const topic = context.params?.topic;
   if (typeof topic !== "string") return { notFound: true };
 
-  const posts = await getPostsByTopic(topic);
+  const posts = getPostsByTopic(topic);
   const outlines = posts.map(getOutline);
   return { props: { topic, outlines } };
 };

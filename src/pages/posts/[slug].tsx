@@ -58,7 +58,7 @@ const Page = ({
 export default Page;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const slugs = await getAllSlugs();
+  const slugs = getAllSlugs();
   const paths = slugs.map((slug) => ({ params: { slug } }));
   return { paths, fallback: false };
 };
@@ -67,6 +67,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const slug = context.params?.slug;
   if (typeof slug !== "string") return { notFound: true };
 
-  const post = await getPostBySlug(slug);
+  const post = getPostBySlug(slug);
   return { props: post };
 };

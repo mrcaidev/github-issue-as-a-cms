@@ -31,6 +31,6 @@ const Page = ({ topics }: IProps) => (
 export default Page;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const topics = await getAllTopics();
+  const topics = getAllTopics();
   return { props: { topics } };
 };

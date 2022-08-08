@@ -29,7 +29,7 @@ const Page = ({ outlines }: IProps) => (
 export default Page;
 
 export const getStaticProps: GetStaticProps<IProps> = async () => {
-  const posts = await getAllPosts();
+  const posts = getAllPosts();
   const outlines = posts.slice(0, 5).map(getOutline);
   return { props: { outlines } };
 };

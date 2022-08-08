@@ -1,4 +1,4 @@
-import { readdir, readFile } from "fs/promises";
+import { readdirSync, readFileSync } from "fs";
 import matter from "gray-matter";
 import { join } from "path";
 import { cwd } from "process";
@@ -25,38 +25,35 @@ export function getOutline(post: IPost) {
   return outline as IPostOutline;
 }
 
-export async function getAllSlugs() {
-  const fileNames = await readdir(postsDirectory);
+export function getAllSlugs() {
+  const fileNames = readdirSync(postsDirectory);
   const mdFileNames = fileNames.filter((filename) => filename.endsWith(".md"));
   const slugs = mdFileNames.map((fileName) => fileName.replace(/\.md$/, ""));
   return slugs;
 }
 
-export async function getPostBySlug(slug: string) {
+export function getPostBySlug(slug: string) {
   const filePath = join(postsDirectory, slug + ".md");
-  const fileContent = await readFile(filePath, { encoding: "utf-8" });
+  const fileContent = readFileSync(filePath, { encoding: "utf-8" });
   const { data, content } = matter(fileContent);
   const { text } = readingTime(content);
   return { ...data, slug, readingTime: text, content } as IPost;
 }
 
-export async function getAllPosts() {
-  const slugs = await getAllSlugs();
-  const posts = await Promise.all(slugs.map(getPostBySlug));
+export function getAllPosts() {
+  const slugs = getAllSlugs();
+  const posts = slugs.map(getPostBySlug);
   posts.sort((a, b) => sortByLatest(a.createdAt, b.createdAt));
   return posts;
 }
 
 export function sortTopicByName(topics: Record<string, number>) {
-  const entries = Object.entries(topics);
-  const sortedEntries = entries.sort(
-    ([a], [b]) => (a.codePointAt(0) ?? 0) - (b.codePointAt(0) ?? 0)
-  );
-  return Object.fromEntries(sortedEntries);
+  const entries = Object.entries(topics).sort(([a], [b]) => a.localeCompare(b));
+  return Object.fromEntries(entries);
 }
 
-export async function getAllTopics() {
-  const posts = await getAllPosts();
+export function getAllTopics() {
+  const posts = getAllPosts();
   const topics = posts.reduce((record, post) => {
     const { topic } = post;
     record[topic] = (record[topic] ?? 0) + 1;
@@ -66,8 +63,8 @@ export async function getAllTopics() {
   return sortedTopics;
 }
 
-export async function getPostsByTopic(topic: string) {
-  const posts = await getAllPosts();
+export function getPostsByTopic(topic: string) {
+  const posts = getAllPosts();
   const postsByTopic = posts.filter((post) => post.topic === topic);
   return postsByTopic;
 }
