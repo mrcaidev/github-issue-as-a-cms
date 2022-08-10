@@ -1,17 +1,17 @@
 import { useMount } from "@mrcaidev/hooks";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { MutableRefObject, useRef, useState } from "react";
 
 export const usePageLoading = (timeout = 400) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const timerRef = useRef(null) as MutableRefObject<NodeJS.Timeout | null>;
 
-  let timer: NodeJS.Timeout;
   const startLoading = () => {
-    timer = setTimeout(() => setIsLoading(true), timeout);
+    timerRef.current = setTimeout(() => setIsLoading(true), timeout);
   };
   const endLoading = () => {
-    if (timer) clearTimeout(timer);
+    if (timerRef.current) clearTimeout(timerRef.current);
     setIsLoading(false);
   };
 
