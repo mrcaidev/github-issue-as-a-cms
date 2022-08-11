@@ -8,7 +8,7 @@ interface IProps {
 
 export const TopicCard = ({ index = 0, topic, num }: IProps) => (
   <div
-    className="flex justify-between items-center gap-x-4 relative px-6 py-4 rounded-md bg-slate-200 dark:bg-slate-800 animate-pop shadow-md hover:shadow-lg transition-[background-color,box-shadow]"
+    className="flex justify-between items-center gap-x-4 relative px-6 py-4 rounded-md bg-slate-200 dark:bg-slate-800 animate-pop shadow-md hover:shadow-lg transition-shadow"
     style={{
       animationDelay: `${index * 0.2}s`,
       animationFillMode: "backwards",
@@ -22,7 +22,7 @@ export const TopicCard = ({ index = 0, topic, num }: IProps) => (
         {topic}
       </Link>
     </h2>
-    <p className="text-base sm:text-lg text-dim transition-colors">
+    <p className="text-base sm:text-lg text-dim">
       {num}
       <span className="hidden sm:inline"> Posts</span>
     </p>

@@ -17,7 +17,7 @@ export const Pagination = ({ current, total }: IProps) =>
       <Link
         href={`/posts?page=${current - 1}`}
         aria-disabled={current <= 1}
-        className={`p-2 rounded-md text-dim transition-colors ${
+        className={`p-2 rounded-md text-dim ${
           current <= 1
             ? "pointer-events-none"
             : "bg-ghost hover:text-slate-700 hover:dark:text-slate-300"
@@ -28,44 +28,40 @@ export const Pagination = ({ current, total }: IProps) =>
       {current >= 3 && (
         <Link
           href={`/posts`}
-          className="px-3 py-1 rounded-md bg-ghost text-dim hover:text-slate-700 hover:dark:text-slate-300 transition-colors"
+          className="px-3 py-1 rounded-md bg-ghost text-dim hover:text-slate-700 hover:dark:text-slate-300"
         >
           1
         </Link>
       )}
       {current >= 4 && (
-        <div className="px-3 py-1 rounded-md text-dim cursor-default transition-colors">
-          ...
-        </div>
+        <div className="px-3 py-1 rounded-md text-dim cursor-default">...</div>
       )}
       {current >= 2 && (
         <Link
           href={`/posts?page=${current - 1}`}
-          className="px-3 py-1 rounded-md bg-ghost text-dim hover:text-slate-700 hover:dark:text-slate-300 transition-colors"
+          className="px-3 py-1 rounded-md bg-ghost text-dim hover:text-slate-700 hover:dark:text-slate-300"
         >
           {current - 1}
         </Link>
       )}
-      <div className="px-3 py-1 rounded-md font-semibold cursor-default transition-colors">
+      <div className="px-3 py-1 rounded-md font-semibold cursor-default">
         {current}
       </div>
       {current <= total - 1 && (
         <Link
           href={`/posts?page=${current + 1}`}
-          className="px-3 py-1 rounded-md bg-ghost text-dim hover:text-slate-700 hover:dark:text-slate-300 transition-colors"
+          className="px-3 py-1 rounded-md bg-ghost text-dim hover:text-slate-700 hover:dark:text-slate-300"
         >
           {current + 1}
         </Link>
       )}
       {current <= total - 3 && (
-        <div className="px-3 py-1 rounded-md text-dim cursor-default transition-colors">
-          ...
-        </div>
+        <div className="px-3 py-1 rounded-md text-dim cursor-default">...</div>
       )}
       {current <= total - 2 && (
         <Link
           href={`/posts/?page=${total}`}
-          className="px-3 py-1 rounded-md bg-ghost text-dim hover:text-slate-700 hover:dark:text-slate-300 transition-colors"
+          className="px-3 py-1 rounded-md bg-ghost text-dim hover:text-slate-700 hover:dark:text-slate-300"
         >
           {total}
         </Link>
@@ -76,7 +72,7 @@ export const Pagination = ({ current, total }: IProps) =>
         className={`p-2 rounded-md text-dim ${
           current >= total
             ? "pointer-events-none"
-            : "bg-ghost hover:text-slate-700 hover:dark:text-slate-300 transition-colors"
+            : "bg-ghost hover:text-slate-700 hover:dark:text-slate-300"
         }`}
       >
         <FiChevronRight size="16px" />

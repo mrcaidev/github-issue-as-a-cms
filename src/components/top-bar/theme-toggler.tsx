@@ -11,7 +11,7 @@ export const ThemeToggler = forwardRef<HTMLButtonElement, {}>((_, ref) => {
       ref={ref}
       onClick={toggle}
       aria-label="Toggle theme"
-      className="p-2 rounded-md bg-ghost transition-colors"
+      className="p-2 rounded-md bg-ghost"
     >
       <ThemeIcon size="24px" />
     </button>

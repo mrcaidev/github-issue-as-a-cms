@@ -25,18 +25,11 @@
     @apply text-slate-600 dark:text-slate-400;
   }
   .article {
-    @apply max-w-none py-4 text-inherit
-      prose dark:prose-invert
-      prose-headings:text-slate-700 dark:prose-headings:text-slate-300 prose-headings:transition-colors
-      prose-p:text-slate-700 dark:prose-p:text-slate-300 prose-p:transition-colors
-      prose-a:text-slate-700 dark:prose-a:text-slate-300 prose-a:text-link prose-a:transition-colors prose-a:underline-offset-4
-      prose-blockquote:transition-colors
-      prose-strong:text-sky-800 dark:prose-strong:text-sky-200 prose-strong:transition-colors
-      prose-code:transition-colors
-      prose-pre:transition-colors
-      prose-li:marker:transition-colors
-      prose-thead:transition-[border]
-      prose-tr:transition-[border]
-      prose-hr:transition-colors;
+    @apply max-w-none py-4
+      prose prose-slate dark:prose-invert
+      prose-headings:text-slate-700 dark:prose-headings:text-slate-300
+      prose-p:text-slate-700 dark:prose-p:text-slate-300
+      prose-a:text-slate-700 dark:prose-a:text-slate-300 prose-a:text-link prose-a:underline-offset-4
+      prose-strong:text-sky-800 dark:prose-strong:text-sky-200;
   }
 }

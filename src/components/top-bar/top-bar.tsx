@@ -7,13 +7,10 @@ import { SideMenu } from "./side-menu";
 import { ThemeToggler } from "./theme-toggler";
 
 export const TopBar = () => (
-  <header className="flex justify-between items-center fixed top-0 left-0 right-0 px-8 py-4 bg-slate-100 dark:bg-slate-900 shadow-lg transition-bg z-10">
+  <header className="flex justify-between items-center fixed top-0 left-0 right-0 px-8 py-4 bg-slate-100 dark:bg-slate-900 shadow-lg z-10">
     <div className="flex items-center gap-x-1">
       <Image src={logo} alt="Logo" width="28px" height="48px" />
-      <Link
-        href="/"
-        className="px-2 py-1 font-black text-3xl transition-colors"
-      >
+      <Link href="/" className="px-2 py-1 font-black text-3xl">
         MRCAI
       </Link>
     </div>
