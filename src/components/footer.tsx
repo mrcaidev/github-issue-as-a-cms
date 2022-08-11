@@ -13,34 +13,42 @@ const Footer = () => (
         <Image src={logo} alt="logo" width="44" height="60" />
         <Link
           href="https://mrcai.space"
-          className="px-2 py-1 font-bold text-xl text-link"
+          className="px-2 py-1 font-bold text-xl text-link transition-colors"
         >
           mrcai.space
         </Link>
-        <small className="text-xs text-dim text-center">
+        <small className="text-xs text-dim text-center transition-colors">
           Copyright © {year} Yuwang Cai. All Rights Reserved.
         </small>
       </div>
       <div className="grow flex justify-evenly items-start gap-12">
         <div>
-          <p className="pb-3 font-semibold text-lg text-dim text-center">
+          <p className="pb-3 font-semibold text-lg text-dim text-center transition-colors">
             LINKS
           </p>
           <nav className="flex flex-col items-center gap-y-1">
             {navigationLinks.map(({ name, href }) => (
-              <Link key={name} href={href} className="px-2 py-1 text-link">
+              <Link
+                key={name}
+                href={href}
+                className="px-2 py-1 text-link transition-colors"
+              >
                 {name}
               </Link>
             ))}
           </nav>
         </div>
         <div>
-          <p className="pb-3 font-semibold text-lg text-dim text-center">
+          <p className="pb-3 font-semibold text-lg text-dim text-center transition-colors">
             CONTACTS
           </p>
           <nav className="flex flex-col items-center gap-y-1">
             {contacts.map(({ name, href }) => (
-              <Link key={name} href={href} className="px-2 py-1 text-link">
+              <Link
+                key={name}
+                href={href}
+                className="px-2 py-1 text-link transition-colors"
+              >
                 {name}
               </Link>
             ))}

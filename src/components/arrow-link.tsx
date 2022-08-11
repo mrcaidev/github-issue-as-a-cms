@@ -9,7 +9,10 @@ interface IProps extends PropsWithChildren {
 
 export const ArrowLink = ({ href, direction = "right", children }: IProps) => (
   <div className="py-4 text-center animate-rise">
-    <Link href={href} className="px-4 py-2 rounded-md bg-ghost">
+    <Link
+      href={href}
+      className="px-4 py-2 rounded-md bg-ghost transition-colors"
+    >
       {direction === "left" && (
         <FiArrowLeft className="inline-block w-5 mr-1 -translate-y-0.5" />
       )}

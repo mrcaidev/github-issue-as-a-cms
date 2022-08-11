@@ -16,13 +16,13 @@
 
 @layer components {
   .bg-ghost {
-    @apply hover:bg-slate-200 hover:dark:bg-slate-800 active:bg-slate-300 active:dark:bg-slate-700 transition-colors;
+    @apply hover:bg-slate-200 hover:dark:bg-slate-800 active:bg-slate-300 active:dark:bg-slate-700;
   }
   .text-link {
-    @apply hover:text-sky-800 hover:dark:text-sky-200 active:text-sky-700 active:dark:text-sky-300 transition-colors;
+    @apply hover:text-sky-800 hover:dark:text-sky-200 active:text-sky-700 active:dark:text-sky-300;
   }
   .text-dim {
-    @apply text-slate-600 dark:text-slate-400 transition-colors;
+    @apply text-slate-600 dark:text-slate-400;
   }
   .article {
     @apply max-w-none py-4 text-inherit

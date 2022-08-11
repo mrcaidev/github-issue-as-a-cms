@@ -6,7 +6,7 @@ export const Hero = () => (
     <h1 className="font-extrabold text-3xl sm:text-4xl lg:text-5xl text-center transition-colors">
       Welcome to Yuwang Cai&apos;s blog!
     </h1>
-    <p className="text-base sm:text-xl lg:text-2xl text-dim text-center">
+    <p className="text-base sm:text-xl lg:text-2xl text-dim text-center transition-colors">
       I share my&nbsp;
       <strong className="text-sky-800 dark:text-sky-200 transition-colors">
         webdev

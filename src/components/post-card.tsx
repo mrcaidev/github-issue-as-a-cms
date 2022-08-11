@@ -24,23 +24,23 @@ export const PostCard = ({
       <h3>
         <Link
           href={"/posts/" + slug}
-          className="py-1 font-bold text-lg sm:text-xl text-link"
+          className="py-1 font-bold text-lg sm:text-xl text-link transition-colors"
         >
           {title}
         </Link>
       </h3>
-      <p className="py-1 text-sm text-dim">
+      <p className="py-1 text-sm text-dim transition-colors">
         <FiClock className="inline-block w-4 mr-1 -translate-y-[1px]" />
         {readingTime}
       </p>
     </div>
-    <p className="my-3 text-sm sm:text-base text-dim line-clamp-2">
+    <p className="my-3 text-sm sm:text-base text-dim line-clamp-2 transition-colors">
       {description}
     </p>
     <div className="flex justify-between items-center gap-x-4 gap-y-2 flex-wrap">
       <time
         dateTime={createdAt}
-        className="font-semibold text-sm sm:text-base text-dim"
+        className="font-semibold text-sm sm:text-base text-dim transition-colors"
       >
         {formatTime(createdAt)}
       </time>

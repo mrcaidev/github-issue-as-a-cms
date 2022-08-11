@@ -22,7 +22,7 @@ export const TopicCard = ({ index = 0, topic, num }: IProps) => (
         {topic}
       </Link>
     </h2>
-    <p className="text-base sm:text-lg text-dim">
+    <p className="text-base sm:text-lg text-dim transition-colors">
       {num}
       <span className="hidden sm:inline"> Posts</span>
     </p>

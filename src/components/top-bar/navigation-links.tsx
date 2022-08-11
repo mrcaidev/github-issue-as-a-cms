@@ -11,7 +11,7 @@ export const NavigationLinks = () => {
         <Link
           key={name}
           href={href}
-          className={`px-4 py-2 rounded-md bg-ghost font-semibold text-lg text-link text-center ${
+          className={`px-4 py-2 rounded-md bg-ghost font-semibold text-lg text-link text-center transition-colors ${
             pathname.startsWith(href)
               ? "text-sky-800 dark:text-sky-200"
               : "text-dim"

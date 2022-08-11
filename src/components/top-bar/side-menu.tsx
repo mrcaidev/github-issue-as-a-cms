@@ -60,7 +60,7 @@ export const SideMenu = () => {
         ref={openRef}
         onClick={showModal}
         aria-label="Open sidebar menu"
-        className="p-2 rounded-md bg-ghost"
+        className="p-2 rounded-md bg-ghost transition-colors"
       >
         <FiMenu size="24px" />
       </button>
@@ -70,7 +70,7 @@ export const SideMenu = () => {
             ref={firstRef}
             onClick={hideModal}
             aria-label="Close sidebar menu"
-            className="p-2 rounded-md bg-ghost"
+            className="p-2 rounded-md bg-ghost transition-colors"
           >
             <FiX size="24px" />
           </button>

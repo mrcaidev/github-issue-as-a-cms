@@ -28,8 +28,10 @@ const Page = ({
           <h1 className="font-bold text-3xl sm:text-4xl lg:text-5xl text-center transition-colors">
             {title}
           </h1>
-          <p className="text-base text-dim text-center">{description}</p>
-          <p className="text-dim">
+          <p className="text-base text-dim text-center transition-colors">
+            {description}
+          </p>
+          <p className="text-dim transition-colors">
             <FiClock className="inline-block w-5 mr-2 -translate-y-0.5" />
             {readingTime}
           </p>
@@ -41,7 +43,7 @@ const Page = ({
             <TopicTag topic={topic} />
             <time
               dateTime={createdAt}
-              className="font-semibold text-sm sm:text-base text-dim"
+              className="font-semibold text-sm sm:text-base text-dim transition-colors"
             >
               {formatTime(createdAt)}
             </time>
