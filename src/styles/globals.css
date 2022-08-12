@@ -36,6 +36,7 @@
       prose-headings:text-normal
       prose-a:text-normal hover:prose-a:text-highlight prose-a:underline-offset-4
       prose-strong:text-highlight
+      prose-img:mx-auto
       prose-code:text-normal;
   }
 }
