@@ -1,7 +1,7 @@
 const Loading = () => (
   <div role="status" className="m-auto">
     <svg
-      className="w-12 h-12 text-gray-200 dark:text-gray-600 fill-sky-800 dark:fill-sky-200 animate-spin"
+      className="w-12 h-12 text-slate-200 dark:text-slate-800 fill-sky-800 dark:fill-sky-200 animate-spin"
       viewBox="0 0 100 101"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

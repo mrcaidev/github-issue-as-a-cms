@@ -24,13 +24,13 @@ const Page = ({
         <title>{title + " - MrCai"}</title>
       </Head>
       <main className="w-full">
-        <section className="flex flex-col items-center gap-y-6 sm:gap-y-8 lg:gap-y-10 px-8 py-12 sm:py-20 bg-slate-200 dark:bg-slate-800 shadow-inner">
+        <section className="flex flex-col items-center gap-y-6 sm:gap-y-8 lg:gap-y-10 px-8 py-12 sm:py-20 bg-dim shadow-inner">
           <h1 className="font-bold text-3xl sm:text-4xl lg:text-5xl text-center">
             {title}
           </h1>
           <p className="text-base text-dim text-center">{description}</p>
-          <p className="text-dim">
-            <FiClock className="inline-block w-5 mr-2 -translate-y-0.5" />
+          <p className="flex items-center gap-x-2 text-dim">
+            <FiClock />
             {readingTime}
           </p>
         </section>

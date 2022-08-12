@@ -24,13 +24,13 @@ export const PostCard = ({
       <h3>
         <Link
           href={"/posts/" + slug}
-          className="py-1 font-bold text-lg sm:text-xl text-link"
+          className="py-1 font-bold text-lg sm:text-xl hover:text-highlight"
         >
           {title}
         </Link>
       </h3>
-      <p className="py-1 text-sm text-dim">
-        <FiClock className="inline-block w-4 mr-1 -translate-y-[1px]" />
+      <p className="flex items-center gap-x-1 py-1 text-sm text-dim">
+        <FiClock />
         {readingTime}
       </p>
     </div>

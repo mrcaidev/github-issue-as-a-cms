@@ -20,15 +20,15 @@ export const Pagination = ({ current, total }: IProps) =>
         className={`p-2 rounded-md text-dim ${
           current <= 1
             ? "pointer-events-none"
-            : "bg-ghost hover:text-slate-700 hover:dark:text-slate-300"
+            : "hover:bg-dim hover:text-highlight"
         }`}
       >
         <FiChevronLeft size="16px" />
       </Link>
       {current >= 3 && (
         <Link
-          href={`/posts`}
-          className="px-3 py-1 rounded-md bg-ghost text-dim hover:text-slate-700 hover:dark:text-slate-300"
+          href="/posts"
+          className="px-3 py-1 rounded-md hover:bg-dim text-dim hover:text-highlight"
         >
           1
         </Link>
@@ -39,7 +39,7 @@ export const Pagination = ({ current, total }: IProps) =>
       {current >= 2 && (
         <Link
           href={`/posts?page=${current - 1}`}
-          className="px-3 py-1 rounded-md bg-ghost text-dim hover:text-slate-700 hover:dark:text-slate-300"
+          className="px-3 py-1 rounded-md hover:bg-dim text-dim hover:text-highlight"
         >
           {current - 1}
         </Link>
@@ -50,7 +50,7 @@ export const Pagination = ({ current, total }: IProps) =>
       {current <= total - 1 && (
         <Link
           href={`/posts?page=${current + 1}`}
-          className="px-3 py-1 rounded-md bg-ghost text-dim hover:text-slate-700 hover:dark:text-slate-300"
+          className="px-3 py-1 rounded-md hover:bg-dim text-dim hover:text-highlight"
         >
           {current + 1}
         </Link>
@@ -61,7 +61,7 @@ export const Pagination = ({ current, total }: IProps) =>
       {current <= total - 2 && (
         <Link
           href={`/posts/?page=${total}`}
-          className="px-3 py-1 rounded-md bg-ghost text-dim hover:text-slate-700 hover:dark:text-slate-300"
+          className="px-3 py-1 rounded-md hover:bg-dim text-dim hover:text-highlight"
         >
           {total}
         </Link>
@@ -72,7 +72,7 @@ export const Pagination = ({ current, total }: IProps) =>
         className={`p-2 rounded-md text-dim ${
           current >= total
             ? "pointer-events-none"
-            : "bg-ghost hover:text-slate-700 hover:dark:text-slate-300"
+            : "hover:bg-dim hover:text-highlight"
         }`}
       >
         <FiChevronRight size="16px" />

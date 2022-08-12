@@ -1,0 +1,12 @@
+[
+  {
+    "id": "posts",
+    "name": "Posts",
+    "href": "/posts"
+  },
+  {
+    "id": "topics",
+    "name": "Topics",
+    "href": "/topics"
+  }
+]

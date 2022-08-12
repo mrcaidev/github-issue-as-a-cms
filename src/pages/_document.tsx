@@ -8,7 +8,7 @@ const Document = () => (
     <Head>
       <meta name="description" content="Yuwang Cai's blog" />
     </Head>
-    <body className="bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300">
+    <body className="bg-normal text-normal">
       <Main />
       <NextScript />
     </body>
