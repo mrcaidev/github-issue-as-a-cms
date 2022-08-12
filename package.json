@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@fontsource/inter": "^4.5.12",
-    "@mrcaidev/hooks": "^0.4.0",
+    "@mrcaidev/hooks": "^0.4.1",
     "@next/bundle-analyzer": "^12.2.4",
     "gray-matter": "^4.0.3",
     "marked": "^4.0.18",
@@ -29,7 +29,7 @@
     "@tailwindcss/line-clamp": "^0.4.0",
     "@tailwindcss/typography": "^0.5.4",
     "@types/marked": "^4.0.3",
-    "@types/node": "^18.6.5",
+    "@types/node": "^18.7.1",
     "@types/prismjs": "^1.26.0",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
