@@ -31,9 +31,8 @@
     @apply text-sky-800 dark:text-sky-200;
   }
   .article {
-    @apply max-w-none py-4
-      prose prose-slate dark:prose-invert
-      prose-headings:text-normal
+    @apply prose prose-slate dark:prose-invert
+      prose-headings:text-normal prose-headings:scroll-mt-24
       prose-a:text-normal hover:prose-a:text-highlight prose-a:underline-offset-4
       prose-strong:text-highlight
       prose-img:mx-auto
