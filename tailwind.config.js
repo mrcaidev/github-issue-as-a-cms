@@ -49,6 +49,17 @@ module.exports = {
             opacity: 1,
           },
         },
+        tocarrow: {
+          "0%, 100%": {
+            transform: "translateX(0)",
+          },
+          "25%": {
+            transform: "translateX(2px)",
+          },
+          "75%": {
+            transform: "translateX(-2px)",
+          },
+        },
       },
       animation: {
         leftslide: "leftslide 0.5s ease-in-out",
