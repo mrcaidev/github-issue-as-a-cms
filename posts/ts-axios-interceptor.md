@@ -1,7 +1,7 @@
 ---
 title: 修正 Axios 拦截器的 TypeScript 类型提示
 description: Axios 的拦截器可以修改请求与响应，但 TypeScript 对这些修改并不知情。我们可以通过自定义 .d.ts 文件来强行纠正 TypeScript 的类型提示。
-topic: typescript
+topic: TypeScript
 createdAt: 2022/8/4
 ---
 

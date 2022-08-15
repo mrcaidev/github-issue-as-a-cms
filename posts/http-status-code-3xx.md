@@ -1,7 +1,7 @@
 ---
 title: HTTP 状态码：3xx 重定向响应
 description: HTTP 的 3xx 状态码代表重定向响应。资源不在这个地方，要去别的地方找。
-topic: http
+topic: HTTP
 createdAt: 2022/5/17
 ---
 

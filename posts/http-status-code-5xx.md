@@ -1,7 +1,7 @@
 ---
 title: HTTP 状态码：5xx 服务端错误
 description: HTTP 的 5xx 状态码代表服务端错误。客户端可能是正确的，只是服务器出了问题。
-topic: http
+topic: HTTP
 createdAt: 2022/5/17
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Web 性能优化：图片
 description: 图片是导致 Web 性能问题的主要原因，其对性能的影响甚至达到了 JavaScript 的两倍以上。我们可以从多个方面来优化图片的性能。
-topic: html
+topic: Web Performance
 createdAt: 2022/8/12
 ---
 

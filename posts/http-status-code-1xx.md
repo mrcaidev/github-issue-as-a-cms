@@ -1,7 +1,7 @@
 ---
 title: HTTP 状态码：1xx 信息性响应
 description: HTTP 的 1xx 状态码代表信息性响应。通常不作为一次单独完整的交互，而是作为其它主要请求的辅助。
-topic: http
+topic: HTTP
 createdAt: 2022/5/17
 ---
 

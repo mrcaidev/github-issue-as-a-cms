@@ -1,7 +1,7 @@
 ---
 title: HTTP 状态码：2xx 成功响应
 description: HTTP 的 2xx 状态码代表成功响应。客户端的请求正确，服务器的理解也正确。
-topic: http
+topic: HTTP
 createdAt: 2022/5/17
 ---
 

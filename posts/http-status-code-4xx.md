@@ -1,7 +1,7 @@
 ---
 title: HTTP 状态码：4xx 客户端错误
 description: HTTP 的 4xx 状态码代表客户端错误。服务器无法理解或满足客户端的要求。
-topic: http
+topic: HTTP
 createdAt: 2022/5/17
 ---
 
