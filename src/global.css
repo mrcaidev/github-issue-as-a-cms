@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  *::-webkit-scrollbar {
+    @apply w-2 h-2 bg-gray-1 dark:bg-graydark-1;
+  }
+  *::-webkit-scrollbar-thumb {
+    @apply w-2 h-2 rounded bg-gray-9 dark:bg-graydark-9 hover:bg-gray-10 dark:hover:bg-graydark-10;
+  }
+}
