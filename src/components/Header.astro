@@ -1,27 +1,11 @@
 ---
-import NavigationLink from "./NavigationLink.astro";
 import ThemeToggler from "./ThemeToggler";
-
-const navigationLinks = [
-  { href: "/timeline", title: "Timeline" },
-  { href: "/tags", title: "Tags" },
-  { href: "/contact", title: "Contact" },
-];
 ---
 
 <header class="flex justify-between items-center max-w-6xl px-8 py-4 mx-auto">
   <a href="/" class="p-1">
-    <img src="/favicon.svg" alt="" width="24" height="32" />
-    <span class="sr-only">Back to Homepage</span>
+    <img src="/favicon.svg" alt="" width="24" height="32" class="w-6 h-8" />
+    <span class="sr-only">Navigate to homepage</span>
   </a>
-  <nav>
-    {
-      navigationLinks.map(({ href, title }) => (
-        <NavigationLink href={href}>{title}</NavigationLink>
-      ))
-    }
-  </nav>
-  <div class="hidden md:block">
-    <ThemeToggler client:visible />
-  </div>
+  <ThemeToggler client:load />
 </header>
