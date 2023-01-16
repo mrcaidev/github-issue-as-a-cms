@@ -1,0 +1,40 @@
+---
+import Layout from "./Layout.astro";
+
+export type Props = Required<PostMeta>;
+const { title, description, publishedAt, updatedAt, tag } = Astro.props;
+
+const publishedAtIso = new Date(publishedAt).toISOString();
+const updatedAtIso = new Date(updatedAt).toISOString();
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: title,
+  description,
+  image: new URL("/banner.png", Astro.site),
+  datePublished: publishedAtIso,
+  dateModified: updatedAtIso,
+  author: {
+    "@type": "Person",
+    name: "Yuwang Cai",
+    url: "https://mrcai.dev",
+  },
+});
+---
+
+<Layout title={title} description={description}>
+  <Fragment slot="og-type">
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content={publishedAtIso} />
+    <meta property="article:modified_time" content={updatedAtIso} />
+    <meta property="article:author" content="https://mrcai.dev" />
+    <meta property="article:section" content="Technology" />
+    <meta property="article:tag" content={tag} />
+  </Fragment>
+  <Fragment slot="json-ld">
+    <script type="application/ld+json" set:html={jsonLd}></script>
+  </Fragment>
+  <Fragment slot="main">
+    <slot />
+  </Fragment>
+</Layout>

@@ -1,2 +1,2 @@
-.next
-*.config.js
+dist
+*.config.cjs
