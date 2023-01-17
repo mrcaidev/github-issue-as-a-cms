@@ -1,0 +1,35 @@
+---
+import { getFormattedDate, getIsoDate } from "utils/date";
+
+export type Props = PostSummary;
+const { slug, title, description, publishedAt, tag } = Astro.props;
+
+const publishedAtIso = getIsoDate(publishedAt);
+const publishedAtText = getFormattedDate(publishedAt);
+const tagUrl = tag.toLowerCase().replace(/\s+/g, "-");
+---
+
+<div
+  class="space-y-2 relative w-full h-full px-8 py-5 rounded-lg shadow bg-gray-3 dark:bg-graydark-3 hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5"
+>
+  <div class="flex justify-between items-center">
+    <time datetime={publishedAtIso} class="text-gray-11 dark:text-graydark-11">
+      {publishedAtText}
+    </time>
+    <a
+      href={tagUrl}
+      class="italic text-gray-11 dark:text-graydark-11 hover:text-gray-12 dark:hover:text-graydark-12 z-10"
+    >
+      #{tag}
+    </a>
+  </div>
+  <h3 class="font-bold text-xl line-clamp-2">
+    <a href={"/p/" + slug}>
+      {title}
+      <span class="absolute top-0 left-0 right-0 bottom-0"></span>
+    </a>
+  </h3>
+  <p class="text-gray-11 dark:text-graydark-11 line-clamp-4">
+    {description}
+  </p>
+</div>

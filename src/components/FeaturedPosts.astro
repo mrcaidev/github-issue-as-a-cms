@@ -1,0 +1,22 @@
+---
+import { fetchFeaturedPosts } from "utils/post";
+import FeaturedPost from "./FeaturedPost.astro";
+import SectionTitle from "./SectionTitle.astro";
+
+const featuredPosts = await fetchFeaturedPosts();
+---
+
+<section>
+  <SectionTitle>Featured</SectionTitle>
+  <ul
+    class="flex snap-x snap-mandatory overflow-auto overscroll-contain [&::-webkit-scrollbar]:h-1"
+  >
+    {
+      featuredPosts.map((post) => (
+        <li class="min-w-full md:min-w-[50%] p-2 snap-start snap-always">
+          <FeaturedPost {...post} />
+        </li>
+      ))
+    }
+  </ul>
+</section>
