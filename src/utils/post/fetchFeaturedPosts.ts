@@ -10,7 +10,7 @@ const query = `
             title
             body
             closedAt
-            labels(first: 1) {
+            labels(first: 3) {
               nodes {
                 name
               }
@@ -51,7 +51,7 @@ const mockPosts = [
     description:
       'The HTTP status code "100 Continue" indicates that the server feels good about the initial part of a request, and the client can go on with it.',
     publishedAt: "2023-01-15T15:02:48Z",
-    tag: "http",
+    tags: ["http"],
   },
   {
     slug: 2,
@@ -59,7 +59,7 @@ const mockPosts = [
     description:
       "HTTP caching is critical to the performance of a website. Resources can be reused for a set period of time, and then revalidated to keep their freshness.",
     publishedAt: "2023-01-15T15:22:03Z",
-    tag: "http",
+    tags: ["http", "featured"],
   },
   {
     slug: 3,
@@ -67,7 +67,7 @@ const mockPosts = [
     description:
       "Design patterns in functional programming paradigm has two distinct features - decoupling of data and methods, and first-class functions.",
     publishedAt: "2023-01-15T15:24:36Z",
-    tag: "design patterns",
+    tags: ["design patterns"],
   },
 ];
 
@@ -76,17 +76,19 @@ export const fetchFeaturedPosts = async () => {
     return mockPosts;
   }
 
-  const json: ResponseJson = await fetchGithub(query);
-  const nodes = json.data.repository.pinnedIssues.nodes;
-  const posts = nodes.map((node) => {
-    const { number, title, body, closedAt, labels } = node.issue;
+  const json = await fetchGithub<ResponseJson>(query);
+  const pinnedIssues = json.data.repository.pinnedIssues.nodes;
+
+  const posts = pinnedIssues.map((pinnedIssue) => {
+    const { number, title, body, closedAt, labels } = pinnedIssue.issue;
     return {
       slug: number,
       title,
       description: body,
       publishedAt: closedAt,
-      tag: labels.nodes[0]?.name ?? "other",
+      tags: labels.nodes.map((label) => label.name),
     } as PostSummary;
   });
+
   return posts;
 };

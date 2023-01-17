@@ -1,6 +1,6 @@
 const API_URL = "https://api.github.com/graphql";
 
-export const fetchGithub = async (query: string, variables: object = {}) => {
+export const fetchGithub = async <T>(query: string, variables: object = {}) => {
   const response = await fetch(API_URL, {
     method: "POST",
     headers: {
@@ -15,5 +15,5 @@ export const fetchGithub = async (query: string, variables: object = {}) => {
   }
 
   const json = await response.json();
-  return json;
+  return json as T;
 };

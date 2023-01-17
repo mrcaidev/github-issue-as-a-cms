@@ -4,7 +4,7 @@ type Post = {
   description: string;
   publishedAt: string;
   updatedAt: string;
-  tag: string;
+  tags: string[];
   origin: string;
   isDraft: boolean;
   content: string;
@@ -13,6 +13,6 @@ type Post = {
 type PostMeta = Omit<Post, "content">;
 
 type PostSummary = Pick<
-  PostMeta,
-  "slug" | "title" | "description" | "publishedAt" | "tag"
+  Post,
+  "slug" | "title" | "description" | "publishedAt" | "tags"
 >;
