@@ -63,11 +63,11 @@ const mockPosts = [
   },
   {
     slug: 3,
-    title: "HTTP Caching - Fresh, Stale and Revalidation",
+    title: "Design Patterns in Functional Programming",
     description:
-      "HTTP caching is critical to the performance of a website. Resources can be reused for a set period of time, and then revalidated to keep their freshness.",
-    publishedAt: "2023-01-15T15:22:03Z",
-    tag: "http",
+      "Design patterns in functional programming paradigm has two distinct features - decoupling of data and methods, and first-class functions.",
+    publishedAt: "2023-01-15T15:24:36Z",
+    tag: "design patterns",
   },
 ];
 

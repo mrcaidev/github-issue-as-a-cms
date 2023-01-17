@@ -1,6 +1,8 @@
 ---
 import { fetchFeaturedPosts } from "utils/post";
 import FeaturedPost from "./FeaturedPost.astro";
+import ChevronLeft from "./icons/ChevronLeft";
+import ChevronRight from "./icons/ChevronRight";
 import SectionTitle from "./SectionTitle.astro";
 
 const featuredPosts = await fetchFeaturedPosts();
@@ -8,15 +10,27 @@ const featuredPosts = await fetchFeaturedPosts();
 
 <section>
   <SectionTitle>Featured</SectionTitle>
-  <ul
-    class="flex snap-x snap-mandatory overflow-auto overscroll-contain [&::-webkit-scrollbar]:h-1"
-  >
-    {
-      featuredPosts.map((post) => (
-        <li class="min-w-full md:min-w-[50%] p-2 snap-start snap-always">
-          <FeaturedPost {...post} />
-        </li>
-      ))
-    }
-  </ul>
+  <div class="relative flex items-center px-3">
+    <div
+      class="absolute top-1/2 -left-2 -translate-y-1/2 text-gray-11 dark:text-graydark-11 motion-safe:animate-[ping-l_1s_ease-out_infinite]"
+    >
+      <ChevronLeft />
+    </div>
+    <ul
+      class="flex snap-x snap-mandatory overflow-auto overscroll-contain [&::-webkit-scrollbar]:hidden"
+    >
+      {
+        featuredPosts.map((post) => (
+          <li class="min-w-full md:min-w-[50%] p-2 snap-start snap-always">
+            <FeaturedPost {...post} />
+          </li>
+        ))
+      }
+    </ul>
+    <div
+      class="absolute top-1/2 -right-2 -translate-y-1/2 text-gray-11 dark:text-graydark-11 motion-safe:animate-[ping-r_1s_ease-out_infinite]"
+    >
+      <ChevronRight />
+    </div>
+  </div>
 </section>
