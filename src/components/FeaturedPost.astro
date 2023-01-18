@@ -34,7 +34,7 @@ const publishedAtText = getFormattedDate(publishedAt);
       tags.map((tag) => (
         <li class="z-10">
           <a
-            href={"/tags" + toKebabCase(tag)}
+            href={"/tags/" + toKebabCase(tag)}
             class="text-sm md:text-base italic text-gray-11 dark:text-graydark-11 hover:text-gray-12 dark:hover:text-graydark-12"
           >
             #{tag}
