@@ -1,8 +1,8 @@
 ---
 import { fetchFeaturedPosts } from "utils/post";
-import FeaturedPost from "./FeaturedPost.astro";
 import ChevronLeft from "./icons/ChevronLeft";
 import ChevronRight from "./icons/ChevronRight";
+import Post from "./Post.astro";
 import SectionTitle from "./SectionTitle.astro";
 
 const featuredPosts = await fetchFeaturedPosts();
@@ -21,7 +21,7 @@ const featuredPosts = await fetchFeaturedPosts();
     {
       featuredPosts.map((post) => (
         <li class="min-w-full sm:min-w-[50%] lg:min-w-[33%] p-2 snap-start snap-always">
-          <FeaturedPost {...post} />
+          <Post isFeatured {...post} />
         </li>
       ))
     }

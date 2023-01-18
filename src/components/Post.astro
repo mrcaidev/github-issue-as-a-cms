@@ -2,23 +2,41 @@
 import { getFormattedDate, getIsoDate } from "utils/date";
 import { toKebabCase } from "utils/misc";
 
-export type Props = PostSummary;
-const { slug, title, description, publishedAt, tags } = Astro.props;
+export type Props = PostSummary & { isFeatured?: boolean };
+const {
+  slug,
+  title,
+  description,
+  publishedAt,
+  tags,
+  isFeatured = false,
+} = Astro.props;
 
 const publishedAtIso = getIsoDate(publishedAt);
 const publishedAtText = getFormattedDate(publishedAt);
 ---
 
 <div
-  class="group flex flex-col gap-2 relative w-full h-full px-8 py-5 rounded-lg shadow bg-gray-3 dark:bg-graydark-3 hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5"
+  class:list={[
+    "group flex flex-col gap-2 relative w-full h-full px-6 py-4 md:px-7 md:py-5 rounded-lg hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5",
+    isFeatured && "shadow bg-gray-3 dark:bg-graydark-3",
+  ]}
 >
   <time
     datetime={publishedAtIso}
-    class="text-xs md:text-sm text-gray-11 dark:text-graydark-11"
+    class:list={[
+      "text-gray-11 dark:text-graydark-11",
+      isFeatured ? "text-xs md:text-sm" : "text-sm md:text-base",
+    ]}
   >
     {publishedAtText}
   </time>
-  <h3 class="font-bold text-lg md:text-xl line-clamp-2">
+  <h3
+    class:list={[
+      "font-bold line-clamp-2",
+      isFeatured ? "text-lg md:text-xl" : "text-xl md:text-2xl",
+    ]}
+  >
     <a href={"/p/" + slug}>
       {title}
       <span class="absolute top-0 left-0 right-0 bottom-0"></span>
