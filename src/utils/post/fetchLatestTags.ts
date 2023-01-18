@@ -6,6 +6,9 @@ const query = `
       labels(first: 5, orderBy: { field: CREATED_AT, direction: DESC }) {
         nodes {
           name
+          issues {
+            totalCount
+          }
         }
       }
     }
@@ -18,18 +21,21 @@ type ResponseJson = {
       labels: {
         nodes: {
           name: string;
+          issues: {
+            totalCount: number;
+          };
         }[];
       };
     };
   };
 };
 
-const mockTags = [
-  "http",
-  "design patterns",
-  "typescript",
-  "performance",
-  "react",
+const mockTags: PostTag[] = [
+  { name: "http", count: 2 },
+  { name: "design patterns", count: 2 },
+  { name: "typescript", count: 1 },
+  { name: "performance", count: 1 },
+  { name: "react", count: 0 },
 ];
 
 export const fetchLatestTags = async () => {
@@ -38,5 +44,8 @@ export const fetchLatestTags = async () => {
   }
 
   const json = await fetchGithub<ResponseJson>(query);
-  return json.data.repository.labels.nodes.map((node) => node.name);
+  return json.data.repository.labels.nodes.map((node) => ({
+    name: node.name,
+    count: node.issues.totalCount,
+  }));
 };
