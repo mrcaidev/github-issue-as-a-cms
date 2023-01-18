@@ -10,7 +10,7 @@ const publishedAtText = getFormattedDate(publishedAt);
 ---
 
 <div
-  class="flex flex-col gap-2 relative w-full h-full px-8 py-5 rounded-lg shadow bg-gray-3 dark:bg-graydark-3 hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5"
+  class="group flex flex-col gap-2 relative w-full h-full px-8 py-5 rounded-lg shadow bg-gray-3 dark:bg-graydark-3 hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5"
 >
   <time
     datetime={publishedAtIso}
@@ -25,7 +25,7 @@ const publishedAtText = getFormattedDate(publishedAt);
     </a>
   </h3>
   <p
-    class="text-sm md:text-base text-gray-11 dark:text-graydark-11 line-clamp-3"
+    class="text-sm md:text-base text-gray-11 dark:text-graydark-11 group-hover:text-gray-12 dark:group-hover:text-graydark-12 line-clamp-3"
   >
     {description}
   </p>
