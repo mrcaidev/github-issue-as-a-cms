@@ -16,3 +16,8 @@ type PostSummary = Pick<
   Post,
   "slug" | "title" | "description" | "publishedAt" | "tags"
 >;
+
+type PostTag = {
+  name: string;
+  count: number;
+};

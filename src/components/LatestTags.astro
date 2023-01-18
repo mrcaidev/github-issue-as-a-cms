@@ -1,0 +1,22 @@
+---
+import { fetchLatestTags } from "utils/post/fetchLatestTags";
+import SectionTitle from "./SectionTitle.astro";
+
+const tags = await fetchLatestTags();
+---
+
+<SectionTitle>Tags</SectionTitle>
+<ul class="flex gap-3 flex-wrap">
+  {
+    tags.map((tag) => (
+      <li>
+        <a
+          href={"/tags/" + tag}
+          class="px-2 py-1 rounded outline outline-2 outline-gray-7 dark:outline-graydark-7 hover:outline-gray-8 dark:hover:outline-graydark-8 bg-gray-3 dark:bg-graydark-3 hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5"
+        >
+          {tag}
+        </a>
+      </li>
+    ))
+  }
+</ul>

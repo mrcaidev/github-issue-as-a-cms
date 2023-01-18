@@ -1,8 +1,15 @@
 ---
 import FeaturedPosts from "components/FeaturedPosts.astro";
+import LatestTags from "components/LatestTags.astro";
 import NormalLayout from "layouts/NormalLayout.astro";
 ---
 
 <NormalLayout title="Home" description="Homepage of Yuwang Cai's blog.">
   <FeaturedPosts />
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-6">
+    <section class="col-span-2 order-2 lg:order-1">Latest Posts</section>
+    <section class="col-span-1 order-1 lg:order-2">
+      <LatestTags />
+    </section>
+  </div>
 </NormalLayout>
