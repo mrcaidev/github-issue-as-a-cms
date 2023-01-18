@@ -1,5 +1,6 @@
 ---
 import FeaturedPosts from "components/FeaturedPosts.astro";
+import LatestPosts from "components/LatestPosts.astro";
 import LatestTags from "components/LatestTags.astro";
 import NormalLayout from "layouts/NormalLayout.astro";
 ---
@@ -10,7 +11,7 @@ import NormalLayout from "layouts/NormalLayout.astro";
   </section>
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
     <section class="lg:col-span-2 order-2 lg:order-1 space-y-3">
-      Latest Posts
+      <LatestPosts />
     </section>
     <section class="lg:col-span-1 order-1 lg:order-2 space-y-3">
       <LatestTags />
