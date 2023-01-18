@@ -44,7 +44,7 @@ type ResponseJson = {
   };
 };
 
-const mockPosts = [
+const mockPosts: PostSummary[] = [
   {
     slug: 1,
     title: "Everything You Need To Know About 100 Continue",
@@ -59,7 +59,7 @@ const mockPosts = [
     description:
       "HTTP caching is critical to the performance of a website. Resources can be reused for a set period of time, and then revalidated to keep their freshness.",
     publishedAt: "2023-01-15T15:22:03Z",
-    tags: ["http", "featured"],
+    tags: ["http"],
   },
   {
     slug: 3,
@@ -77,10 +77,8 @@ export const fetchFeaturedPosts = async () => {
   }
 
   const json = await fetchGithub<ResponseJson>(query);
-  const pinnedIssues = json.data.repository.pinnedIssues.nodes;
-
-  const posts = pinnedIssues.map((pinnedIssue) => {
-    const { number, title, body, closedAt, labels } = pinnedIssue.issue;
+  return json.data.repository.pinnedIssues.nodes.map((node) => {
+    const { number, title, body, closedAt, labels } = node.issue;
     return {
       slug: number,
       title,
@@ -89,6 +87,4 @@ export const fetchFeaturedPosts = async () => {
       tags: labels.nodes.map((label) => label.name),
     } as PostSummary;
   });
-
-  return posts;
 };
