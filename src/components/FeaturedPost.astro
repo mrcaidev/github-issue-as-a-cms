@@ -10,22 +10,22 @@ const publishedAtText = getFormattedDate(publishedAt);
 ---
 
 <div
-  class="flex flex-col gap-1 sm:gap-2 relative w-full h-full px-8 py-5 rounded-lg shadow bg-gray-3 dark:bg-graydark-3 hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5"
+  class="flex flex-col gap-2 relative w-full h-full px-8 py-5 rounded-lg shadow bg-gray-3 dark:bg-graydark-3 hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5"
 >
   <time
     datetime={publishedAtIso}
-    class="text-xs sm:text-sm text-gray-11 dark:text-graydark-11"
+    class="text-xs md:text-sm text-gray-11 dark:text-graydark-11"
   >
     {publishedAtText}
   </time>
-  <h3 class="font-bold text-lg sm:text-xl line-clamp-2">
+  <h3 class="font-bold text-lg md:text-xl line-clamp-2">
     <a href={"/p/" + slug}>
       {title}
       <span class="absolute top-0 left-0 right-0 bottom-0"></span>
     </a>
   </h3>
   <p
-    class="text-sm sm:text-base text-gray-11 dark:text-graydark-11 line-clamp-3"
+    class="text-sm md:text-base text-gray-11 dark:text-graydark-11 line-clamp-3"
   >
     {description}
   </p>
@@ -35,7 +35,7 @@ const publishedAtText = getFormattedDate(publishedAt);
         <li class="z-10">
           <a
             href={"/tags" + toKebabCase(tag)}
-            class="text-sm sm:text-base italic text-gray-11 dark:text-graydark-11 hover:text-gray-12 dark:hover:text-graydark-12"
+            class="text-sm md:text-base italic text-gray-11 dark:text-graydark-11 hover:text-gray-12 dark:hover:text-graydark-12"
           >
             #{tag}
           </a>

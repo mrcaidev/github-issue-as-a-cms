@@ -8,29 +8,27 @@ import SectionTitle from "./SectionTitle.astro";
 const featuredPosts = await fetchFeaturedPosts();
 ---
 
-<section>
-  <SectionTitle>Featured</SectionTitle>
-  <div class="relative flex items-center">
-    <div
-      class="absolute top-1/2 -left-5 -translate-y-1/2 text-gray-11 dark:text-graydark-11"
-    >
-      <ChevronLeft />
-    </div>
-    <ul
-      class="flex snap-x snap-mandatory overflow-auto overscroll-contain [&::-webkit-scrollbar]:hidden"
-    >
-      {
-        featuredPosts.map((post) => (
-          <li class="min-w-full md:min-w-[50%] p-2 snap-start snap-always">
-            <FeaturedPost {...post} />
-          </li>
-        ))
-      }
-    </ul>
-    <div
-      class="absolute top-1/2 -right-5 -translate-y-1/2 text-gray-11 dark:text-graydark-11"
-    >
-      <ChevronRight />
-    </div>
+<SectionTitle>Featured</SectionTitle>
+<div class="relative flex items-center">
+  <div
+    class="block lg:hidden absolute top-1/2 -left-5 -translate-y-1/2 text-gray-11 dark:text-graydark-11"
+  >
+    <ChevronLeft />
   </div>
-</section>
+  <ul
+    class="flex snap-x snap-mandatory overflow-auto overscroll-contain [&::-webkit-scrollbar]:hidden"
+  >
+    {
+      featuredPosts.map((post) => (
+        <li class="min-w-full sm:min-w-[50%] lg:min-w-[33%] p-2 snap-start snap-always">
+          <FeaturedPost {...post} />
+        </li>
+      ))
+    }
+  </ul>
+  <div
+    class="block lg:hidden absolute top-1/2 -right-5 -translate-y-1/2 text-gray-11 dark:text-graydark-11"
+  >
+    <ChevronRight />
+  </div>
+</div>
