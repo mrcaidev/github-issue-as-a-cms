@@ -29,10 +29,10 @@ const publishedAtText = getFormattedDate(publishedAt);
   >
     {description}
   </p>
-  <ul class="flex gap-x-2 relative mt-auto">
+  <ul class="flex gap-x-2 mt-auto">
     {
       tags.map((tag) => (
-        <li>
+        <li class="z-10">
           <Tag name={tag} />
         </li>
       ))
