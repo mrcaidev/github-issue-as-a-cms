@@ -1,6 +1,6 @@
 ---
 import { getFormattedDate, getIsoDate } from "utils/date";
-import Tag from "./Tag.astro";
+import { toKebabCase } from "utils/misc";
 
 export type Props = PostSummary;
 const { slug, title, description, publishedAt, tags } = Astro.props;
@@ -33,7 +33,12 @@ const publishedAtText = getFormattedDate(publishedAt);
     {
       tags.map((tag) => (
         <li class="z-10">
-          <Tag name={tag} />
+          <a
+            href={"/tags" + toKebabCase(tag)}
+            class="text-sm sm:text-base italic text-gray-11 dark:text-graydark-11 hover:text-gray-12 dark:hover:text-graydark-12"
+          >
+            #{tag}
+          </a>
         </li>
       ))
     }
