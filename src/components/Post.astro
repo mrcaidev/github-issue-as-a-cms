@@ -2,14 +2,14 @@
 import { getFormattedDate, getIsoDate } from "utils/date";
 import { toKebabCase } from "utils/misc";
 
-export type Props = PostSummary & { isFeatured?: boolean };
+export type Props = PostSummary & { ghost?: boolean };
 const {
   slug,
   title,
   description,
   publishedAt,
   tags,
-  isFeatured = false,
+  ghost = false,
 } = Astro.props;
 
 const publishedAtIso = getIsoDate(publishedAt);
@@ -19,14 +19,14 @@ const publishedAtText = getFormattedDate(publishedAt);
 <div
   class:list={[
     "group flex flex-col gap-2 relative w-full h-full px-6 py-4 md:px-7 md:py-5 rounded-lg hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5",
-    isFeatured && "shadow bg-gray-3 dark:bg-graydark-3",
+    !ghost && "shadow bg-gray-3 dark:bg-graydark-3",
   ]}
 >
   <time
     datetime={publishedAtIso}
     class:list={[
       "text-gray-11 dark:text-graydark-11",
-      isFeatured ? "text-xs md:text-sm" : "text-sm md:text-base",
+      ghost ? "text-sm md:text-base" : "text-xs md:text-sm",
     ]}
   >
     {publishedAtText}
@@ -34,7 +34,7 @@ const publishedAtText = getFormattedDate(publishedAt);
   <h3
     class:list={[
       "font-bold line-clamp-2",
-      isFeatured ? "text-lg md:text-xl" : "text-xl md:text-2xl",
+      ghost ? "text-xl md:text-2xl" : "text-lg md:text-xl",
     ]}
   >
     <a href={"/p/" + slug}>

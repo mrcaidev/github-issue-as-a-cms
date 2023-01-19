@@ -21,7 +21,7 @@ const latestPosts = await fetchLatestPosts();
   {
     latestPosts.map((post) => (
       <li>
-        <Post {...post} />
+        <Post ghost {...post} />
       </li>
     ))
   }

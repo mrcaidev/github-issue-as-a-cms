@@ -21,7 +21,7 @@ const featuredPosts = await fetchFeaturedPosts();
     {
       featuredPosts.map((post) => (
         <li class="min-w-full sm:min-w-[50%] lg:min-w-[33%] p-2 snap-start snap-always">
-          <Post isFeatured {...post} />
+          <Post {...post} />
         </li>
       ))
     }
