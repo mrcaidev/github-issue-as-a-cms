@@ -1,0 +1,72 @@
+---
+import type { Page } from "astro";
+import ChevronLeft from "./icons/ChevronLeft";
+import ChevronRight from "./icons/ChevronRight";
+import ChevronsLeft from "./icons/ChevronsLeft";
+import ChevronsRight from "./icons/ChevronsRight";
+
+export type Props = Page & { path: string };
+const {
+  path,
+  currentPage,
+  lastPage,
+  url: { next = "#", prev = "#" },
+} = Astro.props;
+---
+
+<nav
+  class="flex justify-center items-center"
+  aria-label="Pagination navigation"
+>
+  <a
+    href={`${path}/1`}
+    aria-label="Go to first page"
+    aria-disabled={currentPage === 1 ? "true" : "false"}
+    class:list={[
+      "p-2 hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5",
+      currentPage === 1 &&
+        "text-gray-11 dark:text-graydark-11 pointer-events-none",
+    ]}
+  >
+    <ChevronsLeft size={20} />
+  </a>
+  <a
+    href={prev}
+    aria-label="Go to previous page"
+    aria-disabled={currentPage === 1 ? "true" : "false"}
+    class:list={[
+      "p-2 hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5",
+      currentPage === 1 &&
+        "text-gray-11 dark:text-graydark-11 pointer-events-none",
+    ]}
+  >
+    <ChevronLeft size={20} />
+  </a>
+  <p aria-current="page" class="px-4 py-2 translate-y-[1px]">
+    {currentPage} / {lastPage}
+  </p>
+  <a
+    href={next}
+    aria-label="Go to next page"
+    aria-disabled={currentPage === lastPage ? "true" : "false"}
+    class:list={[
+      "p-2 hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5",
+      currentPage === lastPage &&
+        "text-gray-11 dark:text-graydark-11 pointer-events-none",
+    ]}
+  >
+    <ChevronRight size={20} />
+  </a>
+  <a
+    href={`${path}/${lastPage}`}
+    aria-label="Go to last page"
+    aria-disabled={currentPage === lastPage ? "true" : "false"}
+    class:list={[
+      "p-2 hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5",
+      currentPage === lastPage &&
+        "text-gray-11 dark:text-graydark-11 pointer-events-none",
+    ]}
+  >
+    <ChevronsRight size={20} />
+  </a>
+</nav>

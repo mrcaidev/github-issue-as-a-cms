@@ -1,5 +1,6 @@
 ---
 import type { GetStaticPaths, Page } from "astro";
+import Pagination from "components/Pagination.astro";
 import Post from "components/Post.astro";
 import SectionTitle from "components/SectionTitle.astro";
 import TimelineItem from "components/TimelineItem.astro";
@@ -16,7 +17,7 @@ export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
       const posts = await fetchPostsByTag(name);
       return paginate(posts, {
         params: { tag: toKebabCase(name) },
-        pageSize: 10,
+        pageSize: 5,
         props: { tagName: name },
       });
     })
@@ -28,6 +29,7 @@ export type Props = {
   tagName: string;
 };
 const { page, tagName } = Astro.props;
+const { tag } = Astro.params;
 ---
 
 <NormalLayout title={tagName} description={`All posts under tag ${tagName}.`}>
@@ -41,4 +43,6 @@ const { page, tagName } = Astro.props;
       ))
     }
   </TimelineList>
+  <div class="grow"></div>
+  <Pagination path={`/tags/${tag}`} {...page} />
 </NormalLayout>
