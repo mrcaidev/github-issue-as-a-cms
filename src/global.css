@@ -26,6 +26,7 @@
       prose-code:text-current
       prose-thead:border-b prose-thead:border-gray-6 dark:prose-thead:border-graydark-6
       prose-tr:border-gray-6 dark:prose-tr:border-graydark-6
-      prose-img:mx-auto;
+      prose-img:mx-auto
+      prose-hr:border-gray-6 dark:prose-hr:border-graydark-6;
   }
 }
