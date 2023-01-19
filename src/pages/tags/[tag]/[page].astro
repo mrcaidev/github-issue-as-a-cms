@@ -2,6 +2,8 @@
 import type { GetStaticPaths, Page } from "astro";
 import Post from "components/Post.astro";
 import SectionTitle from "components/SectionTitle.astro";
+import TimelineItem from "components/TimelineItem.astro";
+import TimelineList from "components/TimelineList.astro";
 import NormalLayout from "layouts/NormalLayout.astro";
 import { toKebabCase } from "utils/misc";
 import { fetchPostsByTag } from "utils/post/fetchPostsByTag";
@@ -30,13 +32,13 @@ const { page, tagName } = Astro.props;
 
 <NormalLayout title={tagName} description={`All posts under tag ${tagName}.`}>
   <SectionTitle>🏷️ {tagName}</SectionTitle>
-  <ul class="mt-6 space-y-2">
+  <TimelineList>
     {
       page.data.map((post) => (
-        <li>
+        <TimelineItem>
           <Post ghost {...post} />
-        </li>
+        </TimelineItem>
       ))
     }
-  </ul>
+  </TimelineList>
 </NormalLayout>
