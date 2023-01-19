@@ -8,17 +8,17 @@ const query = `
         filterBy: { createdBy: "mrcaidev", states: CLOSED, labels: [$label] },
         orderBy: { field: CREATED_AT, direction: DESC }
       ) {
-          nodes {
-            number
-            title
-            body
-            closedAt
-            labels(first: 3) {
-              nodes {
-                name
-              }
+        nodes {
+          number
+          title
+          body
+          closedAt
+          labels(first: 3) {
+            nodes {
+              name
             }
           }
+        }
       }
     }
   }
