@@ -1,4 +1,5 @@
 import { fetchGithub } from "./fetchGithub";
+import { mockTags } from "./mock";
 
 const query = `
   query {
@@ -29,14 +30,6 @@ type ResponseJson = {
     };
   };
 };
-
-const mockTags: PostTag[] = [
-  { name: "http", count: 2 },
-  { name: "design patterns", count: 2 },
-  { name: "typescript", count: 1 },
-  { name: "performance", count: 1 },
-  { name: "react", count: 0 },
-];
 
 export const fetchLatestTags = async () => {
   if (process.env.NODE_ENV === "development") {

@@ -1,4 +1,5 @@
 import { fetchGithub } from "./fetchGithub";
+import { mockPosts } from "./mock";
 
 const query = `
   query {
@@ -44,36 +45,9 @@ type ResponseJson = {
   };
 };
 
-const mockPosts: PostSummary[] = [
-  {
-    slug: 1,
-    title: "Everything You Need To Know About 100 Continue",
-    description:
-      'The HTTP status code "100 Continue" indicates that the server feels good about the initial part of a request, and the client can go on with it.',
-    publishedAt: "2023-01-15T15:02:48Z",
-    tags: ["http"],
-  },
-  {
-    slug: 2,
-    title: "HTTP Caching - Fresh, Stale and Revalidation",
-    description:
-      "HTTP caching is critical to the performance of a website. Resources can be reused for a set period of time, and then revalidated to keep their freshness.",
-    publishedAt: "2023-01-15T15:22:03Z",
-    tags: ["http"],
-  },
-  {
-    slug: 3,
-    title: "Design Patterns in Functional Programming",
-    description:
-      "Design patterns in functional programming paradigm has two distinct features - decoupling of data and methods, and first-class functions.",
-    publishedAt: "2023-01-15T15:24:36Z",
-    tags: ["design patterns"],
-  },
-];
-
 export const fetchFeaturedPosts = async () => {
   if (import.meta.env.DEV) {
-    return mockPosts;
+    return mockPosts.slice(0, 3);
   }
 
   const json = await fetchGithub<ResponseJson>(query);

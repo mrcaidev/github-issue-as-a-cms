@@ -1,4 +1,5 @@
 import { fetchGithub } from "./fetchGithub";
+import { mockPosts } from "./mock";
 
 const query = `
   query ($label: String!) {
@@ -44,68 +45,9 @@ type ResponseJson = {
   };
 };
 
-const mockPosts: Record<string, PostSummary[]> = {
-  http: [
-    {
-      slug: 1,
-      title: "Everything You Need To Know About 100 Continue",
-      description:
-        'The HTTP status code "100 Continue" indicates that the server feels good about the initial part of a request, and the client can go on with it.',
-      publishedAt: "2023-01-15T15:02:48Z",
-      tags: ["http"],
-    },
-    {
-      slug: 2,
-      title: "HTTP Caching - Fresh, Stale and Revalidation",
-      description:
-        "HTTP caching is critical to the performance of a website. Resources can be reused for a set period of time, and then revalidated to keep their freshness.",
-      publishedAt: "2023-01-15T15:22:03Z",
-      tags: ["http"],
-    },
-  ],
-  "design patterns": [
-    {
-      slug: 3,
-      title: "Design Patterns in Functional Programming",
-      description:
-        "Design patterns in functional programming paradigm has two distinct features - decoupling of data and methods, and first-class functions.",
-      publishedAt: "2023-01-15T15:24:36Z",
-      tags: ["design patterns"],
-    },
-    {
-      slug: 4,
-      title: "Design Patterns in One Sentence",
-      description:
-        "Describe 23 mostly commonly used design patterns each in one sentence.",
-      publishedAt: "2023-01-15T15:25:48Z",
-      tags: ["design patterns"],
-    },
-  ],
-  typescript: [
-    {
-      slug: 5,
-      title: "How to Use Axios Interceptor in TypeScript",
-      description:
-        "It's a common practice to retrieve res.data in an Axios response interceptor, but TypeScript knows nothing about it. How can we inform the type system?",
-      publishedAt: "2023-01-15T15:26:47Z",
-      tags: ["typescript"],
-    },
-  ],
-  performance: [
-    {
-      slug: 6,
-      title: "Web Performance: Images",
-      description:
-        "Images are the most common type of assets on the web. They are also the most expensive to download and render. How can we optimize them?",
-      publishedAt: "2023-01-15T15:27:47Z",
-      tags: ["performance"],
-    },
-  ],
-};
-
 export const fetchPostsByTag = async (tag: string) => {
   if (import.meta.env.DEV) {
-    return mockPosts[tag] || [];
+    return mockPosts.filter((post) => post.tags.includes(tag));
   }
 
   const json = await fetchGithub<ResponseJson>(query, { label: tag });
