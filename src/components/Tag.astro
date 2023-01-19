@@ -12,7 +12,7 @@ const { name, count, ghost = false } = Astro.props;
   ]}
 >
   <a
-    href={"/tags/" + toKebabCase(name)}
+    href={`/tags/${toKebabCase(name)}/1`}
     class="font-medium text-base md:text-lg"
   >
     {name}
