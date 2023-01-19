@@ -1,0 +1,36 @@
+---
+import type { GetStaticPaths, Page } from "astro";
+import Pagination from "components/Pagination.astro";
+import Post from "components/Post.astro";
+import SectionTitle from "components/SectionTitle.astro";
+import TimelineItem from "components/TimelineItem.astro";
+import TimelineList from "components/TimelineList.astro";
+import NormalLayout from "layouts/NormalLayout.astro";
+import { fetchPosts } from "utils/post/fetchPosts";
+
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+  const posts = await fetchPosts();
+  return paginate(posts, { pageSize: 5 });
+};
+
+export type Props = {
+  page: Page<PostSummary>;
+};
+const { page } = Astro.props;
+---
+
+<NormalLayout title="Posts" description="All posts by Yuwang Cai.">
+  <main class="flex flex-col max-w-5xl min-h-screen px-8 py-16 mx-auto">
+    <SectionTitle>Posts</SectionTitle>
+    <TimelineList>
+      {
+        page.data.map((post) => (
+          <TimelineItem>
+            <Post ghost {...post} />
+          </TimelineItem>
+        ))
+      }
+    </TimelineList>
+    <Pagination path="/posts" {...page} />
+  </main>
+</NormalLayout>
