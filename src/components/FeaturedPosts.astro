@@ -1,5 +1,5 @@
 ---
-import { fetchFeaturedPosts } from "utils/post";
+import { fetchFeaturedPosts } from "utils/post/fetchFeaturedPosts";
 import ChevronLeft from "./icons/ChevronLeft";
 import ChevronRight from "./icons/ChevronRight";
 import Post from "./Post.astro";
@@ -9,7 +9,7 @@ const featuredPosts = await fetchFeaturedPosts();
 ---
 
 <SectionTitle>✨ Featured</SectionTitle>
-<div class="relative flex items-center">
+<div class="relative mt-4">
   <div
     class="block lg:hidden absolute top-1/2 -left-5 -translate-y-1/2 text-gray-11 dark:text-graydark-11"
   >

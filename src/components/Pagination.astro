@@ -5,9 +5,9 @@ import ChevronRight from "./icons/ChevronRight";
 import ChevronsLeft from "./icons/ChevronsLeft";
 import ChevronsRight from "./icons/ChevronsRight";
 
-export type Props = Page & { path: string };
+export type Props = Page & { root: string };
 const {
-  path,
+  root,
   currentPage,
   lastPage,
   url: { next = "#", prev = "#" },
@@ -15,15 +15,15 @@ const {
 ---
 
 <nav
-  class="flex justify-center items-center mt-auto"
+  class="flex justify-center items-center"
   aria-label="Pagination navigation"
 >
   <a
-    href={`${path}/1`}
+    href={`${root}/1`}
     aria-label="Go to first page"
     aria-disabled={currentPage === 1 ? "true" : "false"}
     class:list={[
-      "p-2 hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5",
+      "p-2 rounded hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5",
       currentPage === 1 &&
         "text-gray-11 dark:text-graydark-11 pointer-events-none",
     ]}
@@ -35,22 +35,22 @@ const {
     aria-label="Go to previous page"
     aria-disabled={currentPage === 1 ? "true" : "false"}
     class:list={[
-      "p-2 hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5",
+      "p-2 rounded hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5",
       currentPage === 1 &&
         "text-gray-11 dark:text-graydark-11 pointer-events-none",
     ]}
   >
     <ChevronLeft size={20} />
   </a>
-  <p aria-current="page" class="px-4 py-2 translate-y-[1px]">
+  <span aria-current="page" class="px-4 py-2 translate-y-[1px] cursor-default">
     {currentPage} / {lastPage}
-  </p>
+  </span>
   <a
     href={next}
     aria-label="Go to next page"
     aria-disabled={currentPage === lastPage ? "true" : "false"}
     class:list={[
-      "p-2 hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5",
+      "p-2 rounded hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5",
       currentPage === lastPage &&
         "text-gray-11 dark:text-graydark-11 pointer-events-none",
     ]}
@@ -58,11 +58,11 @@ const {
     <ChevronRight size={20} />
   </a>
   <a
-    href={`${path}/${lastPage}`}
+    href={`${root}/${lastPage}`}
     aria-label="Go to last page"
     aria-disabled={currentPage === lastPage ? "true" : "false"}
     class:list={[
-      "p-2 hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5",
+      "p-2 rounded hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5",
       currentPage === lastPage &&
         "text-gray-11 dark:text-graydark-11 pointer-events-none",
     ]}

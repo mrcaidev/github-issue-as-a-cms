@@ -20,8 +20,8 @@ const { page } = Astro.props;
 ---
 
 <NormalLayout title="Posts" description="All posts by Yuwang Cai.">
-  <main class="flex flex-col max-w-5xl min-h-screen p-8 pt-16 mx-auto">
-    <SectionTitle>Posts</SectionTitle>
+  <main class="flex flex-col max-w-5xl min-h-screen p-8 pt-20 mx-auto">
+    <SectionTitle>🗃️ Posts</SectionTitle>
     <TimelineList>
       {
         page.data.map((post) => (
@@ -31,6 +31,6 @@ const { page } = Astro.props;
         ))
       }
     </TimelineList>
-    <Pagination path="/posts" {...page} />
+    <Pagination root="/posts" {...page} />
   </main>
 </NormalLayout>

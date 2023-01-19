@@ -7,10 +7,10 @@ import { fetchTags } from "utils/post/fetchTags";
 const tags = await fetchTags();
 ---
 
-<NormalLayout title="Tags" description="Tags of Yuwang Cai's posts">
-  <main class="max-w-5xl min-h-screen px-8 py-16 mx-auto">
+<NormalLayout title="Tags" description="Tags of Yuwang Cai's posts.">
+  <main class="max-w-5xl min-h-screen p-8 pt-20 mx-auto">
     <SectionTitle>🏷️ Tags</SectionTitle>
-    <ul class="columns-xs space-y-3 mt-6">
+    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
       {
         tags.map((tag) => (
           <li>

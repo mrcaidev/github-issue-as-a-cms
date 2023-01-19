@@ -33,7 +33,7 @@ const { tag } = Astro.params;
 ---
 
 <NormalLayout title={tagName} description={`All posts under tag ${tagName}.`}>
-  <main class="flex flex-col max-w-5xl min-h-screen p-8 pt-16 mx-auto">
+  <main class="flex flex-col max-w-5xl min-h-screen p-8 pt-20 mx-auto">
     <SectionTitle>🏷️ {tagName}</SectionTitle>
     <TimelineList>
       {
@@ -45,6 +45,6 @@ const { tag } = Astro.params;
       }
     </TimelineList>
     <div class="grow"></div>
-    <Pagination path={`/tags/${tag}`} {...page} />
+    <Pagination root={`/tags/${tag}`} {...page} />
   </main>
 </NormalLayout>
