@@ -1,12 +1,15 @@
 ---
 import { toKebabCase } from "utils/misc";
 
-export type Props = PostTag;
-const { name, count } = Astro.props;
+export type Props = PostTag & { ghost?: boolean };
+const { name, count, ghost = false } = Astro.props;
 ---
 
 <div
-  class="flex justify-between items-center gap-2 relative px-4 py-2 rounded hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5"
+  class:list={[
+    "flex justify-between items-center gap-2 relative px-4 py-2 rounded hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5",
+    !ghost && "shadow bg-gray-3 dark:bg-graydark-3",
+  ]}
 >
   <a
     href={"/tags/" + toKebabCase(name)}

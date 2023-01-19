@@ -17,11 +17,11 @@ const tags = await fetchLatestTags();
     <ArrowRight size={16} />
   </a>
 </div>
-<ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-x-4">
+<ul class="columns-xs gap-4">
   {
     tags.map((tag) => (
       <li>
-        <Tag {...tag} />
+        <Tag ghost {...tag} />
       </li>
     ))
   }
