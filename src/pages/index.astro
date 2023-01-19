@@ -6,17 +6,19 @@ import NormalLayout from "layouts/NormalLayout.astro";
 ---
 
 <NormalLayout title="Home" description="Homepage of Yuwang Cai's blog.">
-  <section class="space-y-4 mt-6">
-    <FeaturedPosts />
-  </section>
-  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-6">
-    <section class="lg:col-span-2 order-2 lg:order-1 space-y-3">
-      <LatestPosts />
+  <main class="max-w-7xl px-8 py-16 mx-auto">
+    <section class="space-y-4">
+      <FeaturedPosts />
     </section>
-    <section
-      class="lg:col-span-1 order-1 lg:order-2 space-y-3 lg:sticky lg:top-16 h-fit"
-    >
-      <LatestTags />
-    </section>
-  </div>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-6">
+      <section class="lg:col-span-2 order-2 lg:order-1 space-y-3">
+        <LatestPosts />
+      </section>
+      <section
+        class="lg:col-span-1 order-1 lg:order-2 space-y-3 lg:sticky lg:top-16 h-fit"
+      >
+        <LatestTags />
+      </section>
+    </div>
+  </main>
 </NormalLayout>

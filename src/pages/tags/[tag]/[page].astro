@@ -33,16 +33,18 @@ const { tag } = Astro.params;
 ---
 
 <NormalLayout title={tagName} description={`All posts under tag ${tagName}.`}>
-  <SectionTitle>🏷️ {tagName}</SectionTitle>
-  <TimelineList>
-    {
-      page.data.map((post) => (
-        <TimelineItem>
-          <Post ghost {...post} />
-        </TimelineItem>
-      ))
-    }
-  </TimelineList>
-  <div class="grow"></div>
-  <Pagination path={`/tags/${tag}`} {...page} />
+  <main class="flex flex-col max-w-5xl min-h-screen px-8 py-16 mx-auto">
+    <SectionTitle>🏷️ {tagName}</SectionTitle>
+    <TimelineList>
+      {
+        page.data.map((post) => (
+          <TimelineItem>
+            <Post ghost {...post} />
+          </TimelineItem>
+        ))
+      }
+    </TimelineList>
+    <div class="grow"></div>
+    <Pagination path={`/tags/${tag}`} {...page} />
+  </main>
 </NormalLayout>

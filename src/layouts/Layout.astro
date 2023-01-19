@@ -82,9 +82,7 @@ const bannerUrl = new URL("/banner.png", Astro.site);
     class="bg-gray-1 dark:bg-graydark-1 text-gray-12 dark:text-graydark-12 [-webkit-tap-highlight-color:transparent]"
   >
     <Header />
-    <main class="max-w-7xl min-h-screen p-8 pt-16 mx-auto">
-      <slot name="main" />
-    </main>
+    <slot name="main" />
     <Footer />
   </body>
 </html>
