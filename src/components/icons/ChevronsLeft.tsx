@@ -11,6 +11,7 @@ const ChevronsLeft = (props: IconProps) => (
     stroke-width="2"
     stroke-linecap="round"
     stroke-linejoin="round"
+    aria-hidden="true"
   >
     <polyline points="11 17 6 12 11 7" />
     <polyline points="18 17 13 12 18 7" />
