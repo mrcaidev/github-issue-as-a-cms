@@ -1,0 +1,21 @@
+---
+import { toKebabCase } from "utils/misc";
+
+export type Props = PostTag;
+const { name, count } = Astro.props;
+---
+
+<div
+  class="flex justify-between items-center gap-2 relative px-4 py-2 rounded hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5"
+>
+  <a
+    href={"/tags/" + toKebabCase(name)}
+    class="font-medium text-base md:text-lg"
+  >
+    {name}
+    <span class="absolute top-0 left-0 right-0 bottom-0"></span>
+  </a>
+  <p class="text-sm md:text-base text-gray-11 dark:graydark-11">
+    {count} Posts
+  </p>
+</div>

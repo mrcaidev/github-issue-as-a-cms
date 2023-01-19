@@ -1,8 +1,8 @@
 ---
-import { toKebabCase } from "utils/misc";
 import { fetchLatestTags } from "utils/post/fetchLatestTags";
 import ArrowRight from "./icons/ArrowRight";
 import SectionTitle from "./SectionTitle.astro";
+import Tag from "./Tag.astro";
 
 const tags = await fetchLatestTags();
 ---
@@ -19,18 +19,9 @@ const tags = await fetchLatestTags();
 </div>
 <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-x-4">
   {
-    tags.map(({ name, count }) => (
-      <li class="flex justify-between items-center gap-2 relative px-4 py-2 rounded hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5">
-        <a
-          href={"/tags/" + toKebabCase(name)}
-          class="font-medium text-base md:text-lg"
-        >
-          {name}
-          <span class="absolute top-0 left-0 right-0 bottom-0" />
-        </a>
-        <p class="text-sm md:text-base text-gray-11 dark:graydark-11">
-          {count} Posts
-        </p>
+    tags.map((tag) => (
+      <li>
+        <Tag {...tag} />
       </li>
     ))
   }
