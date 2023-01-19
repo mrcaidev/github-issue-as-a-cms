@@ -30,11 +30,11 @@ const jsonLd = JSON.stringify({
     <meta property="article:author" content="https://mrcai.dev" />
     <meta property="article:section" content="Technology" />
     {tags.map((tag) => <meta property="article:tag" content={tag} />)}
-    <Fragment slot="json-ld">
-      <script type="application/ld+json" set:html={jsonLd}></script>
-    </Fragment>
-    <Fragment slot="main">
-      <slot />
-    </Fragment>
+  </Fragment>
+  <Fragment slot="json-ld">
+    <script type="application/ld+json" set:html={jsonLd}></script>
+  </Fragment>
+  <Fragment slot="main">
+    <slot />
   </Fragment>
 </Layout>
