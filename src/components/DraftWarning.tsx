@@ -41,7 +41,7 @@ const DraftWarning = (props: Props) => {
     <dialog
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       ref={dialogRef!}
-      class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 space-y-3 max-w-2xl w-[calc(100%-32px)] px-6 py-5 md:px-8 md:py-6 rounded-lg shadow-lg m-0 bg-gray-1 dark:bg-graydark-1 text-current backdrop:backdrop-blur"
+      class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 space-y-3 max-w-2xl w-[calc(100%-32px)] px-6 py-5 md:px-8 md:py-6 rounded-lg shadow-lg m-0 bg-gray-1 dark:bg-graydark-1 text-current backdrop:bg-graydark-6 backdrop:bg-opacity-60 backdrop:backdrop-blur"
     >
       <h1 class="font-bold text-2xl">⚠️ This is a draft</h1>
       <p>
