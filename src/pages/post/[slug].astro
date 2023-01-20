@@ -17,25 +17,23 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return slugs.map((slug) => ({ params: { slug } }));
 };
 
-const { slug } = Astro.params as { slug: string };
-const { content, ...meta } = await fetchPostBySlug(+slug);
+const { slug: slugStr } = Astro.params as { slug: string };
+const post = await fetchPostBySlug(+slugStr);
+const { slug, title, publishedAt, updatedAt, tags, isDraft, origin, content } =
+  post;
 
 const html = parseMarkdown(content);
-const isUpdated = meta.updatedAt !== meta.publishedAt;
-const publishedAtIso = getIsoDate(meta.publishedAt);
-const publishedAtText = getFormattedDate(meta.publishedAt);
-const updatedAtIso = getIsoDate(meta.updatedAt);
-const updatedAtText = getFormattedDate(meta.updatedAt);
+const isUpdated = updatedAt !== publishedAt;
+const publishedAtIso = getIsoDate(publishedAt);
+const publishedAtText = getFormattedDate(publishedAt);
+const updatedAtIso = getIsoDate(updatedAt);
+const updatedAtText = getFormattedDate(updatedAt);
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
-<PostLayout {...meta}>
-  {
-    meta.isDraft && (
-      <DraftWarning slug={meta.slug} origin={meta.origin} client:load />
-    )
-  }
+<PostLayout {...post}>
+  {isDraft && <DraftWarning slug={slug} origin={origin} client:load />}
   <main class="space-y-8 max-w-5xl min-h-screen px-8 py-20 mx-auto">
     <section
       class="space-y-2 text-sm md:text-base text-gray-11 dark:text-graydark-11"
@@ -57,7 +55,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
         Tags:
         <ul class="flex gap-2">
           {
-            meta.tags.map((tag) => (
+            tags.map((tag) => (
               <li>
                 <a
                   href={`/tags/${tag}/1`}
@@ -72,7 +70,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
       </div>
     </section>
     <article class="max-w-none typography">
-      <h1 class="text-3xl md:text-4xl">{meta.title}</h1>
+      <h1 class="text-3xl md:text-4xl">{title}</h1>
       <Fragment set:html={html} />
     </article>
     <hr class="border-gray-6 dark:border-graydark-6" />
@@ -81,7 +79,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
         <li
           class="rounded-full border border-gray-7 dark:border-graydark-7 hover:border-gray-8 dark:hover:border-graydark-8 hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5"
         >
-          <CommentOnGithub url={meta.origin} />
+          <CommentOnGithub url={origin} />
         </li>
         <li
           class="rounded-full border border-gray-7 dark:border-graydark-7 hover:border-gray-8 dark:hover:border-graydark-8 hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5"
@@ -89,7 +87,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
           <ShareOnDevice
             text="I found a good article on the web. Check it out!"
             url={canonicalUrl}
-            title={meta.title}
+            title={title}
             client:visible
           />
         </li>
@@ -99,7 +97,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
           <ShareOnTwitter
             text="I found a good article on the web. Check it out!"
             url={canonicalUrl}
-            tags={meta.tags}
+            tags={tags}
           />
         </li>
       </ul>

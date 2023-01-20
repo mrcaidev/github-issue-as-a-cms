@@ -1,7 +1,7 @@
 ---
 import Layout from "./Layout.astro";
 
-export type Props = PostMeta;
+export type Props = Post;
 const { title, description, publishedAt, updatedAt, tags } = Astro.props;
 
 const publishedAtIso = new Date(publishedAt).toISOString();
