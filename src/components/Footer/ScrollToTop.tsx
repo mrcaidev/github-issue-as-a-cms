@@ -1,6 +1,6 @@
-import ArrowUp from "./icons/ArrowUp";
+import ArrowUp from "components/icons/ArrowUp";
 
-const BackToTop = () => (
+const ScrollToTop = () => (
   <button
     type="button"
     onClick={() => scrollTo({ top: 0 })}
@@ -11,4 +11,4 @@ const BackToTop = () => (
   </button>
 );
 
-export default BackToTop;
+export default ScrollToTop;

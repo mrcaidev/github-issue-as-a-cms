@@ -1,0 +1,22 @@
+---
+import Twitter from "components/icons/Twitter";
+
+export type Props = {
+  text: string;
+  url: string;
+  tags: string[];
+};
+const { text, url, tags } = Astro.props;
+const hashTags = ["blog", "technology", ...tags].join(",");
+
+const shareUrl = new URL("https://twitter.com/intent/tweet");
+shareUrl.searchParams.set("text", text);
+shareUrl.searchParams.set("url", url);
+shareUrl.searchParams.set("hashtags", hashTags);
+shareUrl.searchParams.set("via", "mrcaidev");
+---
+
+<a href={shareUrl} target="_blank" class="block p-3">
+  <Twitter size={20} />
+  <span class="sr-only">Share this post on Twitter</span>
+</a>

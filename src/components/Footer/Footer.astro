@@ -1,0 +1,19 @@
+---
+import Copyright from "./Copyright.astro";
+import Logo from "./Logo.astro";
+import ScrollToTop from "./ScrollToTop";
+import ViewSource from "./ViewSource.astro";
+---
+
+<footer class="px-8 py-3 border-t border-t-gray-6 dark:border-t-graydark-6">
+  <div
+    class="flex flex-col md:flex-row justify-between items-center gap-2 max-w-7xl mx-auto"
+  >
+    <Logo />
+    <Copyright />
+    <div class="flex items-center gap-2">
+      <ViewSource />
+      <ScrollToTop client:visible />
+    </div>
+  </div>
+</footer>

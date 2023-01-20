@@ -1,5 +1,5 @@
 ---
-import MessageSquare from "./icons/MessageSquare";
+import MessageSquare from "components/icons/MessageSquare";
 
 export type Props = {
   url: string;
@@ -9,5 +9,5 @@ const { url } = Astro.props;
 
 <a href={url} target="_blank" class="block p-3">
   <MessageSquare size={20} />
-  <span class="sr-only">Leave your comment on GitHub</span>
+  <span class="sr-only">Leave a comment on GitHub</span>
 </a>

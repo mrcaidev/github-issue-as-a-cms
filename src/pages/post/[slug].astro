@@ -1,11 +1,11 @@
 ---
 import type { GetStaticPaths } from "astro";
-import Comment from "components/Comment.astro";
+import CommentOnGithub from "components/CommentOnGithub.astro";
 import DraftWarning from "components/DraftWarning";
 import Calendar from "components/icons/Calendar";
 import Tag from "components/icons/Tag";
-import ShareOs from "components/ShareOs";
-import ShareTwitter from "components/ShareTwitter.astro";
+import ShareOnDevice from "components/ShareOnDevice";
+import ShareOnTwitter from "components/ShareOnTwitter.astro";
 import PostLayout from "layouts/PostLayout.astro";
 import { getFormattedDate, getIsoDate } from "utils/date";
 import { parseMarkdown } from "utils/markdown";
@@ -81,17 +81,26 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
         <li
           class="rounded-full border border-gray-7 dark:border-graydark-7 hover:border-gray-8 dark:hover:border-graydark-8 hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5"
         >
-          <Comment url={meta.origin} />
+          <CommentOnGithub url={meta.origin} />
         </li>
         <li
           class="rounded-full border border-gray-7 dark:border-graydark-7 hover:border-gray-8 dark:hover:border-graydark-8 hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5"
         >
-          <ShareOs url={canonicalUrl} title={meta.title} client:visible />
+          <ShareOnDevice
+            text="I found a good article on the web. Check it out!"
+            url={canonicalUrl}
+            title={meta.title}
+            client:visible
+          />
         </li>
         <li
           class="rounded-full border border-gray-7 dark:border-graydark-7 hover:border-gray-8 dark:hover:border-graydark-8 hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5"
         >
-          <ShareTwitter url={canonicalUrl} tags={meta.tags} />
+          <ShareOnTwitter
+            text="I found a good article on the web. Check it out!"
+            url={canonicalUrl}
+            tags={meta.tags}
+          />
         </li>
       </ul>
     </section>
