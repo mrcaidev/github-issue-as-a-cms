@@ -3,21 +3,28 @@ import FeaturedPosts from "components/FeaturedPosts.astro";
 import LatestPosts from "components/LatestPosts.astro";
 import LatestTags from "components/LatestTags.astro";
 import NormalLayout from "layouts/NormalLayout.astro";
+import { fetchFeaturedPosts } from "utils/post/fetchFeaturedPosts";
+import { fetchLatestPosts } from "utils/post/fetchLatestPosts";
+import { fetchLatestTags } from "utils/post/fetchLatestTags";
+
+const featuredPosts = await fetchFeaturedPosts();
+const latestPosts = await fetchLatestPosts();
+const latestTags = await fetchLatestTags();
 ---
 
 <NormalLayout title="Home" description="Homepage of Yuwang Cai's blog.">
   <main class="max-w-7xl min-h-screen p-8 pt-20 mx-auto">
     <section>
-      <FeaturedPosts />
+      <FeaturedPosts posts={featuredPosts} />
     </section>
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
       <section class="lg:col-span-2 order-2 lg:order-1">
-        <LatestPosts />
+        <LatestPosts posts={latestPosts} />
       </section>
       <section
         class="lg:col-span-1 order-1 lg:order-2 lg:sticky lg:top-16 h-fit"
       >
-        <LatestTags />
+        <LatestTags tags={latestTags} />
       </section>
     </div>
   </main>

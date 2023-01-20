@@ -1,11 +1,13 @@
 ---
-import { fetchFeaturedPosts } from "utils/post/fetchFeaturedPosts";
 import ChevronLeft from "./icons/ChevronLeft";
 import ChevronRight from "./icons/ChevronRight";
 import Post from "./Post.astro";
 import SectionTitle from "./SectionTitle.astro";
 
-const featuredPosts = await fetchFeaturedPosts();
+export type Props = {
+  posts: PostSummary[];
+};
+const { posts } = Astro.props;
 ---
 
 <SectionTitle>✨ Featured</SectionTitle>
@@ -19,7 +21,7 @@ const featuredPosts = await fetchFeaturedPosts();
     class="flex snap-x snap-mandatory overflow-auto overscroll-contain [&::-webkit-scrollbar]:hidden"
   >
     {
-      featuredPosts.map((post) => (
+      posts.map((post) => (
         <li class="min-w-full sm:min-w-[50%] lg:min-w-[33%] p-2 snap-start snap-always">
           <Post {...post} />
         </li>

@@ -1,10 +1,12 @@
 ---
-import { fetchLatestTags } from "utils/post/fetchLatestTags";
 import ArrowRight from "./icons/ArrowRight";
 import SectionTitle from "./SectionTitle.astro";
 import Tag from "./Tag.astro";
 
-const latestTags = await fetchLatestTags();
+export type Props = {
+  tags: PostTag[];
+};
+const { tags } = Astro.props;
 ---
 
 <div class="flex justify-between items-center px-2">
@@ -19,7 +21,7 @@ const latestTags = await fetchLatestTags();
 </div>
 <ul class="columns-xs gap-4 mt-4">
   {
-    latestTags.map((tag) => (
+    tags.map((tag) => (
       <li>
         <Tag ghost {...tag} />
       </li>

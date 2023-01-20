@@ -1,10 +1,12 @@
 ---
-import { fetchLatestPosts } from "utils/post/fetchLatestPosts";
 import ArrowRight from "./icons/ArrowRight";
 import Post from "./Post.astro";
 import SectionTitle from "./SectionTitle.astro";
 
-const latestPosts = await fetchLatestPosts();
+export type Props = {
+  posts: PostSummary[];
+};
+const { posts } = Astro.props;
 ---
 
 <div class="flex justify-between items-center px-2">
@@ -19,7 +21,7 @@ const latestPosts = await fetchLatestPosts();
 </div>
 <ul class="space-y-2 mt-4">
   {
-    latestPosts.map((post) => (
+    posts.map((post) => (
       <li>
         <Post ghost {...post} />
       </li>
