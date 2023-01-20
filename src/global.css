@@ -21,9 +21,11 @@
       [&_sup_a]:no-underline
       [&_:is(h1,h2,h3,h4,h5,h6)_a]:no-underline [&_:is(h1,h2,h3,h4,h5,h6)_a]:font-bold
       prose-blockquote:text-gray-11 dark:prose-blockquote:text-graydark-11
+      prose-blockquote:border-gray-6 dark:prose-blockquote:border-graydark-6
       [&_blockquote_p]:before:content-none [&_blockquote_p]:after:content-none
       prose-strong:text-gray-12 dark:prose-strong:text-graydark-12
       prose-code:text-current
+      prose-li:marker:text-current
       prose-thead:border-b prose-thead:border-gray-6 dark:prose-thead:border-graydark-6
       prose-tr:border-gray-6 dark:prose-tr:border-graydark-6
       prose-img:mx-auto
