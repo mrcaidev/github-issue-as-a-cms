@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths } from "astro";
 import Comment from "components/Comment.astro";
+import DraftWarning from "components/DraftWarning";
 import Calendar from "components/icons/Calendar";
 import Tag from "components/icons/Tag";
 import ShareOs from "components/ShareOs";
@@ -30,6 +31,11 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
 <PostLayout {...meta}>
+  {
+    meta.isDraft && (
+      <DraftWarning slug={meta.slug} origin={meta.origin} client:load />
+    )
+  }
   <main class="space-y-8 max-w-5xl min-h-screen px-8 py-20 mx-auto">
     <section
       class="space-y-2 text-sm md:text-base text-gray-11 dark:text-graydark-11"
