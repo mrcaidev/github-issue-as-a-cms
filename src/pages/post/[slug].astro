@@ -1,7 +1,10 @@
 ---
 import type { GetStaticPaths } from "astro";
+import Comment from "components/Comment.astro";
 import Calendar from "components/icons/Calendar";
 import Tag from "components/icons/Tag";
+import ShareOs from "components/ShareOs";
+import ShareTwitter from "components/ShareTwitter.astro";
 import PostLayout from "layouts/PostLayout.astro";
 import { getFormattedDate, getIsoDate } from "utils/date";
 import { parseMarkdown } from "utils/markdown";
@@ -15,18 +18,21 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 const { slug } = Astro.params as { slug: string };
 const { content, ...meta } = await fetchPostBySlug(+slug);
+
 const html = parseMarkdown(content);
 const isUpdated = meta.updatedAt !== meta.publishedAt;
 const publishedAtIso = getIsoDate(meta.publishedAt);
 const publishedAtText = getFormattedDate(meta.publishedAt);
 const updatedAtIso = getIsoDate(meta.updatedAt);
 const updatedAtText = getFormattedDate(meta.updatedAt);
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
 <PostLayout {...meta}>
-  <main class="max-w-5xl min-h-screen px-8 py-20 mx-auto">
+  <main class="space-y-8 max-w-5xl min-h-screen px-8 py-20 mx-auto">
     <section
-      class="space-y-2 mb-8 text-sm md:text-base text-gray-11 dark:text-graydark-11"
+      class="space-y-2 text-sm md:text-base text-gray-11 dark:text-graydark-11"
     >
       <time datetime={publishedAtIso} class="flex items-center gap-2">
         <Calendar size={20} />
@@ -63,7 +69,25 @@ const updatedAtText = getFormattedDate(meta.updatedAt);
       <h1 class="text-3xl md:text-4xl">{meta.title}</h1>
       <Fragment set:html={html} />
     </article>
-    <hr class="my-8 border-gray-6 dark:border-graydark-6" />
-    <!-- Add media sharing -->
+    <hr class="border-gray-6 dark:border-graydark-6" />
+    <section>
+      <ul class="flex justify-center items-center gap-4">
+        <li
+          class="rounded-full border border-gray-7 dark:border-graydark-7 hover:border-gray-8 dark:hover:border-graydark-8 hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5"
+        >
+          <Comment url={meta.origin} />
+        </li>
+        <li
+          class="rounded-full border border-gray-7 dark:border-graydark-7 hover:border-gray-8 dark:hover:border-graydark-8 hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5"
+        >
+          <ShareOs url={canonicalUrl} title={meta.title} client:visible />
+        </li>
+        <li
+          class="rounded-full border border-gray-7 dark:border-graydark-7 hover:border-gray-8 dark:hover:border-graydark-8 hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5"
+        >
+          <ShareTwitter url={canonicalUrl} tags={meta.tags} />
+        </li>
+      </ul>
+    </section>
   </main>
 </PostLayout>

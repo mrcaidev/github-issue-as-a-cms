@@ -1,0 +1,13 @@
+---
+import MessageSquare from "./icons/MessageSquare";
+
+export type Props = {
+  url: string;
+};
+const { url } = Astro.props;
+---
+
+<a href={url} target="_blank" class="block p-3">
+  <MessageSquare size={20} />
+  <span class="sr-only">Leave your comment on GitHub</span>
+</a>
