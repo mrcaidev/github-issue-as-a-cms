@@ -15,5 +15,10 @@ export const fetchGithub = async <T>(query: string, variables: object = {}) => {
   }
 
   const json = await response.json();
+
+  if (json.errors) {
+    throw new Error("Github API returns error", { cause: json.errors });
+  }
+
   return json as T;
 };
