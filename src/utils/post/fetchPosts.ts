@@ -63,7 +63,10 @@ export const fetchPosts = async () => {
   let cursor = "";
   const posts = [];
   while (shouldContinue) {
-    const json = await fetchGithub<ResponseJson>(query, { cursor });
+    const json = await fetchGithub<ResponseJson>(
+      query,
+      cursor ? { cursor } : {}
+    );
 
     const { hasNextPage, endCursor } = json.data.repository.issues.pageInfo;
     shouldContinue = hasNextPage;
