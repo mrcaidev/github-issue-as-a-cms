@@ -33,10 +33,10 @@ const ThemeToggler = () => {
     <button
       type="button"
       onClick={toggle}
-      aria-label="Toggle theme"
       class="p-2 rounded hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5"
     >
       {isDark() ? <Sun /> : <Moon />}
+      <span class="sr-only">Toggle theme</span>
     </button>
   );
 };
