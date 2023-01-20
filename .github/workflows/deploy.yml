@@ -1,0 +1,13 @@
+name: Deploy
+on:
+  issues:
+    types: closed
+  schedule:
+    - cron: "0 0 * * 0"
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call deploy hook
+        run: curl -X POST ${{ secrets.DEPLOY_HOOK }}
